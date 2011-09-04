@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ax-web"
+  id="myeclipse.1301533404703"
+  context-root="/ax-web"
+  j2ee-spec="5.0"
+  archive="ax-web.war">
+  <attributes>
+    <attribute name="webrootdir" value="/src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,58 @@
+<build>     
+			<finalName>ax</finalName>     
+			<plugins>     
+			  <plugin>     
+				<groupId>org.codehaus.cargo</groupId>     
+				<artifactId>cargo-maven2-plugin</artifactId>   
+				<configuration>
+                    <wait>true</wait>
+                    <container>
+                        <containerId>tomcat6x</containerId>
+                        <home>${catalina.home}</home>
+                        <type>installed</type>
+                    </container>
+                    <configuration>
+                        <type>existing</type>
+                        <home>${catalina.home}</home>
+                        <properties>
+                            <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
+                            <cargo.logging>high</cargo.logging>
+                            <cargo.tomcat.manager.url>${tomcat.manager}</cargo.tomcat.manager.url>
+                            <cargo.remote.username>${tomcat.manager.username}</cargo.remote.username>
+                            <cargo.remote.password>${tomcat.manager.password}</cargo.remote.password>
+                        </properties>
+                    </configuration>
+                    <deployer>
+                        <type>installed</type>
+                        <deployables>
+                            <deployable>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>${project.artifactId}</artifactId>
+                                <type>war</type>
+                                <pingTimeout>30000</pingTimeout>
+                                <properties>
+                                    <context>/${parent.artifactId}</context>
+                                </properties>
+                            </deployable>
+                        </deployables>
+                    </deployer>
+                </configuration>
+				<!--
+				<configuration>     
+						<container>     
+						  <containerId>jetty7x</containerId>  
+						  <home>E:\develop\java\jetty-hightide-7.2.2.v20101205</home>     
+						  <type>installed</type>
+						  <timeout>3000000</timeout> <!-- 5 minutes -->     
+						   
+						</container>     
+						<configuration>    
+						  <type>existing</type>
+						  <properties>     
+							<cargo.jvmargs>-XX:PermSize=512m -XX:MaxPermSize=1024 -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled</cargo.jvmargs>     
+						  </properties>     
+						</configuration>     
+					  </configuration>     
+		         -->
+			  </plugin>  
+			 

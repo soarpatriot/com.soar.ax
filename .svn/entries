@@ -1,0 +1,71 @@
+10
+
+dir
+1
+https://soarpatriot:20443/svn/com.soar.ax/trunk
+https://soarpatriot:20443/svn/com.soar.ax
+
+
+
+2011-03-26T13:54:25.796875Z
+1
+VisualSVN Server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+445305bc-6f9c-434a-a6f1-ce0cb4cc6478
+
+ax-web
+dir
+
+parent
+dir
+
+pom.xml
+file
+24
+
+
+
+2011-04-11T14:14:53.328125Z
+dfb06e00b21298740052a0d9991db647
+2011-04-16T20:38:16.734375Z
+24
+soar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14633
+
+ax-core
+dir
+

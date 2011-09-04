@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soar</groupId>
+    <artifactId>soar-org</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Soar Company POM</name>
+    <description>The base POM for all Soar maven projects.</description>
+    <url>http://www.soar.com</url>
+    <inceptionYear>2011</inceptionYear>
+
+    <organization>
+        <name>Soar Group</name>
+        <url>http://www.soar.com</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>soar</id>
+            <name>Liu Haibao</name>
+            <organization>soar</organization>
+            <url>http://www.soar.com.cn/developers/soar</url>
+            <roles>
+                <role>Creator</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
+            <comments>See discussion at http://xxx.xxx.xxx/356.html for more details.</comments>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <issueManagement>
+        <system>jira</system>
+        <url>http://localhost/jira/projects/bizon/browse/HHH</url>
+    </issueManagement>
+
+    <dependencies>
+    </dependencies>
+    
+    <dependencyManagement>
+    </dependencyManagement>
+   
+    <build>
+        <plugins>
+           <!-- Needed in order to load the proper 'artifact handler' for the 'jdocbook-style' packaging -->
+           <!--
+            <plugin>
+                <groupId>org.jboss.maven.plugins</groupId>
+                <artifactId>maven-jdocbook-style-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+            -->
+        </plugins>
+        <pluginManagement>
+            <plugins>
+         
+            </plugins>
+        </pluginManagement>
+
+        <extensions>
+            <!-- webdav based deployments (snapshot repo) -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+            <!-- scm based deployments (release repo) -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-scm</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-manager-plexus</artifactId>
+                <version>1.0</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-svnexe</artifactId>
+                <version>1.0</version>
+            </extension>
+        </extensions>
+    </build>
+
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.4.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <linkXRef>true</linkXRef>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>1.5</targetJdk>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>taglist-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <tags>
+                        <tag>@FIXME</tag>
+                        <tag>@fixme</tag>
+                        <tag>FIXME</tag>
+                        <tag>fixme</tag>
+                        <tag>@TODO</tag>
+                        <tag>@todo</tag>
+                        <tag>TODO</tag>
+                        <tag>todo</tag>
+                    </tags>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javancss-maven-plugin</artifactId>
+                <version>2.0-beta-2</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <onlyAnalyze>com.lenovo.*</onlyAnalyze>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <!-- The MySQL 5 test envionment -->
+        <!--
+        <profile>
+            <id>mysql50</id>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>5.0.5</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <properties>
+                <db.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</db.dialect>
+                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+                <jdbc.url>jdbc:mysql://vmg08.mw.lab.eng.bos.redhat.com/hibbr35</jdbc.url>
+                <jdbc.user>hibbr35</jdbc.user>
+                <jdbc.pass>hibbr35</jdbc.pass>
+                <jdbc.isolation/>
+            </properties>
+        </profile>
+        -->
+    </profiles>
+
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>

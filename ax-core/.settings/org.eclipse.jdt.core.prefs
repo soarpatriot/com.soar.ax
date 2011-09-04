@@ -1,0 +1,19 @@
+#Wed Jun 15 22:48:31 CST 2011
+org.eclipse.jdt.core.codeComplete.fieldSuffixes=
+org.eclipse.jdt.core.codeComplete.localSuffixes=
+org.eclipse.jdt.core.compiler.compliance=1.6
+org.eclipse.jdt.core.codeComplete.localPrefixes=
+encoding//src/test/java=UTF-8
+encoding//src/test/resources=UTF-8
+org.eclipse.jdt.core.codeComplete.staticFieldPrefixes=
+eclipse.preferences.version=1
+org.eclipse.jdt.core.codeComplete.fieldPrefixes=
+org.eclipse.jdt.core.codeComplete.argumentSuffixes=
+org.eclipse.jdt.core.codeComplete.argumentPrefixes=
+encoding//src/main/java=UTF-8
+org.eclipse.jdt.core.codeComplete.staticFieldSuffixes=
+encoding//src/main/resources=UTF-8
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.6
+org.eclipse.jdt.core.compiler.source=1.6

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/com.soar.ax/!svn/ver/25/trunk/ax-core/src/main/java/com/soar/ax/entity
+END
+IdEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/com.soar.ax/!svn/ver/31/trunk/ax-core/src/main/java/com/soar/ax/entity/IdEntity.java
+END
+Order.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/com.soar.ax/!svn/ver/25/trunk/ax-core/src/main/java/com/soar/ax/entity/Order.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/com.soar.ax/!svn/ver/25/trunk/ax-core/src/main/java/com/soar/ax/entity/User.java
+END
