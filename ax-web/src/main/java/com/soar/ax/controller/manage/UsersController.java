@@ -68,6 +68,7 @@ public class UsersController {
 	    	ModelAndView mav = new ModelAndView();
 			mav.setViewName("user/user-index");
 			List<User> users = usersService.find("from User");
+			mav.addObject("templete", "template");
 			mav.addObject("users", users);
 			return mav;
 	    }
@@ -131,7 +132,7 @@ public class UsersController {
 		public String remove(@PathVariable long id) {
 			
 			ModelAndView mav = new ModelAndView();
-			mav.setViewName("/spring/users");
+			mav.setViewName("/s3/users");
 			User user = new User();
 			user.setId(id);
 			usersService.delete(user);

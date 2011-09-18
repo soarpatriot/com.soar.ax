@@ -6,13 +6,12 @@ package com.soar.ax.service;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.soar.ax.base.BaseTest;
 import com.soar.ax.entity.Order;
+
 
 /**
  * <p>
