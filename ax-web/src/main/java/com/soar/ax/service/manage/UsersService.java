@@ -3,6 +3,9 @@
  */
 package com.soar.ax.service.manage;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Service;
 
 import com.soar.ax.entity.authrization.User;
@@ -48,5 +51,9 @@ import com.soar.ax.service.BaseService;
  */
 @Service("usersService")
 public class UsersService extends BaseService<User>{
-		
+	  public List<User> findUserByCriteria(int start, int end){
+		  //DetachedCriteria criteria = new DetachedCriteria();
+	      //return (List<User>)hibernateGeneralDao.getHibernateTemplate().findByCriteria(criteria);
+		  return null;
+	  }
 }

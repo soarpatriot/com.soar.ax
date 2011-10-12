@@ -39,7 +39,7 @@ public class OrdersController extends ValidationAwareSupport implements ModelDri
 
     // GET /orders
     public HttpHeaders index() {
-        list = ordersService.getAll(model);
+        list = ordersService.getAll(Order.class);
         return new DefaultHttpHeaders("index")
             .disableCaching();
     }

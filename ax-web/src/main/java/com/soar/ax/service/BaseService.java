@@ -7,8 +7,10 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.test.annotation.NotTransactional;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.soar.ax.dao.HibernateGeneralDao;
@@ -57,12 +59,12 @@ import com.soar.ax.dao.MyBatisGeneralDao;
 public class BaseService<T> {
 	
 	    @Autowired
-		protected HibernateGeneralDao hibernateGeneralDao;
+		protected HibernateGeneralDao<T> hibernateGeneralDao;
 	    
 	    @Autowired
 	    protected MyBatisGeneralDao myBatisGeneralDao;
 	    
-	    
+	    @NotTransactional
 	    public T getEntityById(Class<T> classType, Serializable id){
 	    	return hibernateGeneralDao.getHibernateTemplate().get(classType, id);  
 	    }
@@ -76,8 +78,12 @@ public class BaseService<T> {
 	    	 hibernateGeneralDao.getHibernateTemplate().saveOrUpdate(t);
 	    }
 	    
-	    public List<T> getAll(T t){
-	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().loadAll(t.getClass());
+	    public void saveOrUpdate(Collection<T> entities){
+	    	 hibernateGeneralDao.getHibernateTemplate().saveOrUpdateAll(entities);
+	    }
+	    
+	    public List<T> getAll(Class<T> t){
+	    	return hibernateGeneralDao.getHibernateTemplate().loadAll(t);
 	    }
 	    
 	    @Transactional
@@ -85,20 +91,20 @@ public class BaseService<T> {
 	    	hibernateGeneralDao.getHibernateTemplate().delete(t);  
 	    }
 	    
-	    @Transactional
+	    @NotTransactional
 	    public List<T> find(String queryString){
 	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().find(queryString);
 	    }
-	    
+	      
 	    public void deleteAll(Collection<T> entities){
 	    	hibernateGeneralDao.getHibernateTemplate().deleteAll(entities);
 	    }
 
-		public HibernateGeneralDao getHibernateGeneralDao() {
+		public HibernateGeneralDao<T> getHibernateGeneralDao() {
 			return hibernateGeneralDao;
 		}
 
-		public void setHibernateGeneralDao(HibernateGeneralDao hibernateGeneralDao) {
+		public void setHibernateGeneralDao(HibernateGeneralDao<T> hibernateGeneralDao) {
 			this.hibernateGeneralDao = hibernateGeneralDao;
 		}
 

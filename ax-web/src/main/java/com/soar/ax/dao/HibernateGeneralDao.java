@@ -9,6 +9,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author Soar
  *
  */
-public class HibernateGeneralDao extends HibernateDaoSupport{
+public class HibernateGeneralDao<T> extends HibernateDaoSupport{
 		
 }
