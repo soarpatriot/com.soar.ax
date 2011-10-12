@@ -38,7 +38,16 @@
        <url-pattern>/*</url-pattern>  
     </filter-mapping>  
     
-	
+	<filter>
+       <filter-name>hibernateFilter</filter-name>
+       <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+       </filter-class>
+    </filter>
+
+    <filter-mapping>
+      <filter-name>hibernateFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+    </filter-mapping>
 	  
 	<!-- encoding-->
 	<filter>
@@ -62,7 +71,8 @@
 		<param-value>
 			classpath*:spring-config/spring-context.xml,
 			classpath*:spring-config/spring-context-sprintMVC.xml,
-			classpath*:spring-config/spring-context-transactionPolicy.xml 
+			classpath*:spring-config/spring-context-transactionPolicy.xml,
+			classpath*:spring-config/spring-context-log.xml 
 		</param-value>
 	</context-param>
 	

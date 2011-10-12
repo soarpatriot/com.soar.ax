@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html class="js">
   <head>
    
     <title>User Create</title>
@@ -14,34 +14,47 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<style type="text/css">
+	  #js-info { display:block; padding: 10px 20px; background: #fee; color: #800; margin: 0 0 10px 0; }
+	  .js #js-info { display:none; }
+	
+	  p.switch { display:none; }
+	  .js p.switch { display:block; }
+	  
+	  .active { font-weight:bold; color: #800 !important; }
+	</style>
+	
+    <script type="text/javascript">document.documentElement.className += " js";</script>
   </head>
   
   <body>
-    <form:form method="post" commandName="user" action="/ax-web/s3/users">
-        <table>
-				<tr>
-				<td>Login Name:</td>
-				<td><form:input path="loginName" /></td>
-				</tr>
-				<tr>
-				<td>Password:</td>
-				<td><form:input path="password" /></td>
-				</tr>
-				<tr>
-				<td>Nick Name:</td>
-				<td><form:input path="name" /></td>
-				</tr>
-				<tr>
-				<td>Email:</td>
-				<td><form:input path="email" /></td>
-				</tr>
-				<tr>
-				<td colspan="2">
-				<input type="submit" value="Save Changes" />
-				</td>
-				</tr>
-		</table>
+    <form:form method="post" class="yform" commandName="user" action="/ax-web/s3/users">
+        <fieldset>
+        <legend>First Fieldset (<code>text-fields</code> &amp; <code>select-boxes</code>)</legend>
+        <div class="type-text">
+                <label for="loginName">Login Name:</label>
+                <form:input path="loginName" size="5"/>
+        </div>
+        <div class="type-text">
+                <label for="password">Password:</label>
+                <form:input path="password" />
+        </div>
+        <div class="type-text">
+                <label for="name">Nick Name:</label>
+                <form:input path="name" />
+        </div>
+        <div class="type-text">
+                <label for="email">Login Name:</label>
+                <form:input path="email" />
+        </div>
+        
+        </fieldset>
+       
+		<div class="type-button">
+              <input type="button" value="button" id="button1" name="button1" />
+              <input type="reset" value="reset" class="reset" id="reset" name="reset" />
+              <input type="submit" value="Save Changes"  class="submit" id="submit" name="submit" />
+        </div>
     </form:form>
   </body>
 </html>
