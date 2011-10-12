@@ -13,13 +13,12 @@ import com.soar.ax.entity.IdEntity;
  * @author liuhb7
  *
  */
-@Entity
-@Table(name="AX_ROLE_RIGHT")
+
 public class RoleRight extends IdEntity{
 	
-	@ManyToOne
+	
 	private Role role;
-	@ManyToOne
+	
 	private Right right;
 	public Role getRole() {
 		return role;

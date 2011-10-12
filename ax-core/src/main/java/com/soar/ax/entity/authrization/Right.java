@@ -5,7 +5,9 @@ package com.soar.ax.entity.authrization;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,8 +25,13 @@ public class Right extends IdEntity {
 	private String rightType;
 	private String rightId;
 	private boolean hasRight;
-	@OneToMany
-	private Set<RoleRight> roleRights;
+	
+	@ManyToMany(
+			cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+			mappedBy = "rights",
+			targetEntity = Role.class
+	)
+	private Set<Role> roles;
 	
 	public String getRightSpace() {
 		return rightSpace;
@@ -50,10 +57,11 @@ public class Right extends IdEntity {
 	public void setHasRight(boolean hasRight) {
 		this.hasRight = hasRight;
 	}
-	public Set<RoleRight> getRoleRights() {
-		return roleRights;
+	public Set<Role> getRoles() {
+		return roles;
 	}
-	public void setRoleRights(Set<RoleRight> roleRights) {
-		this.roleRights = roleRights;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
+
 }

@@ -2,8 +2,11 @@ package com.soar.ax.entity.authrization;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -22,13 +25,20 @@ import com.soar.ax.entity.IdEntity;
 @Table(name="AX_USER")
 public class User extends IdEntity {
 
-	
 	private String loginName;
 	private String password;
 	private String name;
 	private String email;
-	@OneToMany
-	private Set<UserRole> userRoles;
+	
+	@ManyToMany(targetEntity=Role.class,
+			cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+		name="AX_USER_ROLE",
+		joinColumns=@JoinColumn(name="USER_ID"),
+		inverseJoinColumns=@JoinColumn(name="ROLE_ID")
+	)
+	private Set<Role> roles;
+	
 	
 	public User()
 	{
@@ -69,10 +79,10 @@ public class User extends IdEntity {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
+	public Set<Role> getRoles() {
+		return roles;
 	}
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }

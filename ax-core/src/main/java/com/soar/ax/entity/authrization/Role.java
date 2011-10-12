@@ -5,8 +5,11 @@ package com.soar.ax.entity.authrization;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.soar.ax.entity.IdEntity;
@@ -19,13 +22,24 @@ import com.soar.ax.entity.IdEntity;
 @Table(name="AX_ROLE")
 public class Role extends IdEntity{
 	
-	private String roleName;
-	private String roleCode;
+	protected String roleName;
+	protected String roleCode;
 	
-	@OneToMany
-	private Set<RoleRight> roleRights;
-	@OneToMany
-	private Set<UserRole> userRoles;
+	@ManyToMany(
+			cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+			mappedBy = "roles",
+			targetEntity = User.class
+	)
+	private Set<User> users;
+	
+	@ManyToMany(targetEntity=Role.class,
+			cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+		name="AX_ROLE_RIGHT",
+		joinColumns=@JoinColumn(name="ROLE_ID"),
+		inverseJoinColumns=@JoinColumn(name="RIGHT_ID")
+	)
+	private Set<Right> rights;
 	
 	public String getRoleName() {
 		return roleName;
@@ -39,17 +53,17 @@ public class Role extends IdEntity{
 	public void setRoleCode(String roleCode) {
 		this.roleCode = roleCode;
 	}
-	public Set<RoleRight> getRoleRights() {
-		return roleRights;
+	public Set<User> getUsers() {
+		return users;
 	}
-	public void setRoleRights(Set<RoleRight> roleRights) {
-		this.roleRights = roleRights;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
+	public Set<Right> getRights() {
+		return rights;
 	}
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
+	public void setRights(Set<Right> rights) {
+		this.rights = rights;
 	}
 	
 }

@@ -3,23 +3,28 @@
  */
 package com.soar.ax.entity.authrization;
 
+import javax.persistence.CascadeType;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.soar.ax.entity.IdEntity;
 
 /**
  * @author liuhb7
  *
  */
-@Entity
-@Table(name="AX_USER_ROLE")
-public class UserRole extends IdEntity{
+
+public class UserRole{
 	
-	@ManyToOne
+	/*@EmbeddedId*/
+	private UserRolePrimaryKey primaryKey;
+	
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE},targetEntity=User.class)
+	@JoinColumn(name="user_id")*/
 	private User user;
-	@ManyToOne
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE},targetEntity=User.class)
+	@JoinColumn(name="role_id")*/
 	private Role role;
 	
 	public User getUser() {
@@ -33,5 +38,11 @@ public class UserRole extends IdEntity{
 	}
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	public UserRolePrimaryKey getPrimaryKey() {
+		return primaryKey;
+	}
+	public void setPrimaryKey(UserRolePrimaryKey primaryKey) {
+		this.primaryKey = primaryKey;
 	}
 }
