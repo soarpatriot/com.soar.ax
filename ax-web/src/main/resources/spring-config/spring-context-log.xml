@@ -23,11 +23,7 @@
 	</aop:config>   
 	
 	
-	<aop:config>  
-        <aop:aspect ref="logAspect" >  
-            <aop:around method="doAround" pointcut="execution(* com.soar.ax.action..*.*(..))" />       
-        </aop:aspect>  
-    </aop:config>  
+ 
     <aop:config>  
         <aop:aspect ref="logAspect" >  
             <aop:around method="doAround" pointcut="execution(* com.soar.ax.controller..*.*(..))" />       
