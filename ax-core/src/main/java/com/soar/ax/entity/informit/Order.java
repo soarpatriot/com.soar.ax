@@ -1,7 +1,9 @@
-package com.soar.ax.entity;
+package com.soar.ax.entity.informit;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.soar.ax.entity.IdEntity;
 
 
 @Entity
