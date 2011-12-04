@@ -32,7 +32,6 @@ body {
     margin: auto; /* center in viewport */
     padding: 0;
    
-    
     width: 960px;
 
 }
@@ -71,9 +70,13 @@ h1, h2, h3, h4, h5, h6 {
 h2, h3, h4, h5, h6 { color: #f80; }
 
 h1 {
+	text-align: center;
+	background-color: #FFF;
+	padding: .25em;
+	color: #000;
     font-family: Verdana, 'DejaVu Sans', 'Bitstream Vera Sans', Helvetica, sans-serif;
     font-size: 261.538%; /* 34px */
-    margin: 25px 0 18px 25px;
+    margin: 25px 0 18px 0px;
     -moz-text-shadow: 1px 1px 2px #999;
     -webkit-text-shadow: 1px 1px 2px #999;
     text-shadow: 1px 1px 2px #999;
@@ -189,7 +192,7 @@ dt { font-weight: bold; }
 /* -- Layout and Content ---------------------------------------------------- */
 #doc {
     margin: auto;
-    width: 1024px;
+    width: 960px;
 }
 
 #main { width: 754px; }
@@ -305,3 +308,14 @@ dt { font-weight: bold; }
 }
 
 .newwindow { text-align: center; }
+
+
+
+
+
+
+/* my cutom CSS
+   theme. */
+.h-15{ clear:both; padding:0px; margin:0px; height:15px;}
+.h-20{ clear:both; padding:0px; margin:0px; height:20px;}
+.content{min-height:500px;}
