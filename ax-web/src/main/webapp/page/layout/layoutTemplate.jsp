@@ -3,7 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My Site -<decorator:title default="Welcome! 装饰器页面。。。" /></title>
+    
+    <title>My Site -<decorator:title default="Welcome! " /></title>
     <decorator:head></decorator:head>
   </head>
   <body>

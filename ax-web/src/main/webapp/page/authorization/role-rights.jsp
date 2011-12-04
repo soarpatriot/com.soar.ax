@@ -2,38 +2,36 @@
 <%@ include file="/page/common/taglibs.jsp"%>
 <html>
   <head>
-   
     <title>Role Rights</title>
-    <script type="text/javascript">
-      $(function(){
-          
-      });
-    </script>
+    
   </head>
   
   <body>
    <p>
-     <h3> Manage user's role</h3>
+     <h3> Manage role's rights</h3>
     
    </p>
    <div>
      <form:form method="post" class="yform" commandName="userRolesWapper" action="${ctx}/s3/authorization/save-user-roles">
-     <form:hidden path="userId" value="${userId}"/>
+     
      <table>
       
        <tr>
-         <td>Check</td>
+         
          <td>Role ID</td>
          <td>Role Name</td>
          <td>Role Code</td>
-       
+         <td>Role Description</td>
+         <td>Manage Role Rights</td>
        </tr>
-       <c:forEach items="${userRoles}" var="roleCheck">
+       <c:forEach items="${roles}" var="role">
        <tr>
-         <td><form:checkbox path="roleIds" checked="${roleCheck.checked}" value="${roleCheck.role.id}"/>${roleCheck.role.id}</td>
-         <td>${roleCheck.role.id}</td>
-	     <td>${roleCheck.role.roleName}</td>
-	     <td>${roleCheck.role.roleCode}</td>
+         <td>${role.id}</td>
+         
+	     <td>${role.roleName}</td>
+	     <td>${role.roleCode}</td>
+	     <td>${role.id}</td>
+	     <td></td>
        </tr>
        </c:forEach>
        <tr>

@@ -4,5 +4,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
-
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
