@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Validateable;
 import com.opensymphony.xwork2.ValidationAwareSupport;
-import com.soar.ax.entity.Order;
-import com.soar.ax.service.OrdersService;
+import com.soar.ax.entity.informit.Order;
+import com.soar.ax.service.other.OrdersService;
      
 @Results({
     @Result(name="success", type="redirectAction", params = {"actionName" , "orders"})

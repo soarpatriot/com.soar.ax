@@ -9,4 +9,5 @@ package com.soar.ax.controller;
  */
 public class BaseController {
 	protected String nameSpace="";
+	
 }

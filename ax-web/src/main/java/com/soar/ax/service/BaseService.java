@@ -95,7 +95,14 @@ public class BaseService<T> {
 	    public List<T> find(String queryString){
 	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().find(queryString);
 	    }
+	    
+	    @NotTransactional
+	    public List<T> findByCriteria(DetachedCriteria criteria){
+	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().findByCriteria(criteria);
+	    }
 	      
+	   
+	    
 	    public void deleteAll(Collection<T> entities){
 	    	hibernateGeneralDao.getHibernateTemplate().deleteAll(entities);
 	    }

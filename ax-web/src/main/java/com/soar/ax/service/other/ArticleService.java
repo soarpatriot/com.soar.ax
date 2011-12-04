@@ -1,4 +1,4 @@
-package com.soar.ax.service;
+package com.soar.ax.service.other;
 
 import java.util.ArrayList;
 import java.util.Date;
