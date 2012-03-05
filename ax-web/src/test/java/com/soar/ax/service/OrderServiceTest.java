@@ -10,7 +10,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.soar.ax.base.BaseTest;
-import com.soar.ax.entity.Order;
+import com.soar.ax.entity.informit.Order;
+import com.soar.ax.service.other.OrdersService;
 
 
 /**
@@ -66,8 +67,8 @@ public class OrderServiceTest extends BaseTest{
 			    List<Order> orders =ordersService.find("from Order o where o.clientName='baozhong89898' and o.amount=21312312");
 			    Assert.assertNotNull(orders);
 			    Assert.assertEquals(1, orders.size());   
-			           
-			    ordersService.delete(orders.get(0));
+			    /*UsernamePasswordAuthenticationFilter  
+			    ordersService.delete(orders.get(0));*/
 			}catch(Exception e)
 			{
 				e.printStackTrace();
