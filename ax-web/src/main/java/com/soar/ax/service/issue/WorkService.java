@@ -3,10 +3,15 @@
  */
 package com.soar.ax.service.issue;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.httpclient.util.DateUtil;
+import javax.persistence.metamodel.Type;
+
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
@@ -23,22 +28,41 @@ public class WorkService extends BaseService<WorkContent>{
 	
 	public List<WorkContent> findTodayWork(){
 		DetachedCriteria criteria = DetachedCriteria.forClass(WorkContent.class);
-		//Expression()
-		Date todayBegin = new Date();
-		todayBegin.setHours(0);
-		todayBegin.setMinutes(0);
-		todayBegin.setSeconds(0);
-		String beginStr = DateUtil.formatDate(todayBegin, "yyyy-MM-dd ");
-		
-		Date todayEnd = new Date();
-		todayEnd.setHours(23);
-		todayEnd.setMinutes(59);
-		todayEnd.setSeconds(59);
-		
-		
-		criteria.add(Restrictions.gt("beginTime", todayBegin));  
-		criteria.add(Restrictions.lt("endTime", todayEnd));  
-		return super.findByCriteria(criteria);//
-		
+		criteria.add(Restrictions.gt("endTime", getRecentlyDate(0)));  
+		criteria.add(Restrictions.lt("endTime", getRecentlyDate(1)));  
+		return super.findByCriteria(criteria);
+	}
+	
+	public List<WorkContent> findTomorrowWork(){
+		DetachedCriteria criteria = DetachedCriteria.forClass(WorkContent.class);
+		criteria.add(Restrictions.gt("endTime", getRecentlyDate(1)));  
+		criteria.add(Restrictions.lt("endTime", getRecentlyDate(2)));  
+		return super.findByCriteria(criteria);	
+	}
+	
+	public List<WorkContent> findYesterdayWork(){
+		DetachedCriteria criteria = DetachedCriteria.forClass(WorkContent.class);
+		criteria.add(Restrictions.gt("endTime", getRecentlyDate(-1)));  
+		criteria.add(Restrictions.lt("endTime", getRecentlyDate(0)));  
+		return super.findByCriteria(criteria);	
+	}
+	
+	/**
+	 * i = 0 represent today
+	 * i = 1 represent tomorrow
+	 * i = 2 represent day after tomorrow
+	 * @param i
+	 * @return
+	 */
+	private Date getRecentlyDate(int i){
+		Date beginDate = new Date();
+	    Calendar beginCalendar	= Calendar.getInstance();
+	    beginCalendar.setTime(beginDate);
+	    beginCalendar.add(Calendar.DAY_OF_MONTH, i);
+	    beginCalendar.set(Calendar.HOUR_OF_DAY, 0);
+	    beginCalendar.set(Calendar.MINUTE, 0);
+	    beginCalendar.set(Calendar.SECOND, 0);
+	    beginDate = beginCalendar.getTime();
+	    return beginDate;
 	}
 }

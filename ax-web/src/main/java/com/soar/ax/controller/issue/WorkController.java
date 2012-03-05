@@ -7,7 +7,9 @@ import java.beans.PropertyEditor;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -24,6 +26,7 @@ import com.soar.ax.controller.BaseController;
 import com.soar.ax.entity.authrization.User;
 import com.soar.ax.entity.issue.WorkContent;
 import com.soar.ax.service.issue.WorkService;
+import com.soar.ax.view.XlsView;
 
 /**
  * <p>
@@ -75,12 +78,9 @@ public class WorkController extends BaseController{
 	    }
 	    @InitBinder
 	    protected void initBinder(WebDataBinder binder) {
-	    	
-	    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    	PropertyEditor p = new CustomDateEditor(df,true);
 	    	binder.registerCustomEditor(Date.class, p);
-	    	
-	       
 	    }
 	    
 	    @RequestMapping(method = RequestMethod.GET)
@@ -89,7 +89,7 @@ public class WorkController extends BaseController{
 	    	ModelAndView mav = new ModelAndView();
 			mav.setViewName(nameSpace+"/work-index");
 			List<WorkContent> workContents = workService.find("from WorkContent");
-		
+
 			mav.addObject("workContents", workContents);
 			return mav;
 	    }
@@ -113,6 +113,16 @@ public class WorkController extends BaseController{
 			}*/
 			mav.setViewName("user/user-show");
 			return mav;
+		}
+	    
+	    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+		public String remove(@PathVariable long id) {
+			
+			WorkContent workContent = new WorkContent();
+			workContent.setId(id);
+	    	workService.delete(workContent);
+			
+			return "redirect:/s3/work";
 		}
 	    
 	    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
@@ -148,17 +158,34 @@ public class WorkController extends BaseController{
 	    @RequestMapping(value = "/today",method = RequestMethod.GET)
 		public ModelAndView today() {
 			
-	    	/*Date today = new Date();
-	    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	    	String todayStr = df.format(today);*/
 	    	ModelAndView mav = new ModelAndView();
 			mav.setViewName(nameSpace+"/work-index");
-			//String queryString = "from WorkContent w where "+todayStr+">w.beginTime  and w.endTime <"+todayStr;
 			List<WorkContent> workContents = workService.findTodayWork();
-		
 			mav.addObject("workContents", workContents);
 			return mav;
 		}
-	
+	    @RequestMapping(value = "/tomorrow",method = RequestMethod.GET)
+		public ModelAndView tomorrow() {
+	    	ModelAndView mav = new ModelAndView();
+			mav.setViewName(nameSpace+"/work-index");
+			List<WorkContent> workContents = workService.findTomorrowWork();
+			mav.addObject("workContents", workContents);
+			return mav;
+		}
+	    
+	    @RequestMapping(value = "/yesterday",method = RequestMethod.GET)
+		public ModelAndView yesterday() {
+	    	ModelAndView mav = new ModelAndView();
+			//mav.setViewName(nameSpace+"/work-index");
+	    	mav.setViewName("XlsView");
+			List<WorkContent> workContents = workService.findYesterdayWork();
+			mav.addObject("workContents", workContents);
+			Map model = new HashMap();   
+			model.put("wordList", workContents);
+			XlsView xlsView = new XlsView();   
+	        return new ModelAndView(xlsView, model); 
+
+			//return mav;
+		}
 		
 }

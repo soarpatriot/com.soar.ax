@@ -95,7 +95,7 @@ public class AuthorizationController extends BaseController{
 		User user = usersService.getEntityById(User.class, userRolesWapper.getUserId());
 		
 		
-	    Set<Role> roles = new HashSet<Role>();
+		Set<Role> roles = new HashSet<Role>();
 		for(long roleId : userRolesWapper.getRoleIds()){
 			Role r = new Role();
 			r = rolesService.getEntityById(Role.class, roleId);
