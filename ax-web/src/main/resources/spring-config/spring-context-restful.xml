@@ -24,8 +24,9 @@
 	    <context:component-scan base-package="com.soar.ax.controller"/>
 	    
 	        
-	    <mvc:annotation-driven/>
-	    
+	    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
+		<mvc:annotation-driven/>
+	    <mvc:view-controller path="/" view-name="home"/>
 	    	
 		<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		  <property name="mediaTypes">
@@ -37,7 +38,7 @@
 		  </property>
 		  <property name="viewResolvers">
 		    <list>
-	        
+	          
 		      <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
 		      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		        <property name="prefix" value="/page/"/>
@@ -55,13 +56,24 @@
       
      	      <!-- xml view     <property name="order"><value>2</value></property> 
      	      <bean id="content" class="com.springsource.samples.rest.SampleContentAtomView"/>
+     	      <property name="location"><value>/WEB-INF/view/views.xml</value></property>
      	      -->
-			    
-	  <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-		  <property name="location"><value>/WEB-INF/view/views.xml</value></property>
-		  <property name="order"><value>2</value></property>
-	   </bean>
-		
+		<!--
+		<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		  <property name="location"><value>/WEB-INF/view.properties</value></property>
+		  <property name="order"><value>3</value></property>
+	   </bean> 
+		 -->	    
+	   
+	   <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+				 <property name="basename" value="view"/>
+				 <property name="order"><value>2</value></property>
+			   </bean>
+        <bean id="excelViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver"> 
+            <property name="order" value="1"/> 
+            <property name="location" value="/WEB-INF/view/views-excel.xml"/> 
+        </bean> 
+        
 		<!--  jsp view 
 		<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -96,12 +108,28 @@
 	    
 	
 	   <!-- Mapping exception to the handler view    -->
-	    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-	        <property name="exceptionMappings">
-	            <props>
-	            </props>
-	        </property>
-	    </bean>
+	   <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">     
+        <property name="exceptionMappings">     
+           <props>     
+                <prop key="java.lang.Exception">errors/error</prop>     
+                <prop key="java.lang.Throwable">errors/err</prop>     
+            </props>     
+        </property>     
+        <property name="statusCodes">     
+             <props>     
+                 <prop key="errors/error">500</prop>     
+                <prop key="errors/404">404</prop>     
+             </props>     
+        </property>     
+        <!-- set log level default no log -->     
+        <property name="warnLogCategory" value="WARN"></property>     
+        <!-- when can not find about error page, use this -->     
+        <property name="defaultErrorView" value="errors/error"></property>     
+        <!-- http status code -->     
+        <property name="defaultStatusCode" value="500"></property>     
+     </bean>     
+     <!-- global exception end -->    
+
 
    
 	
