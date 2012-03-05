@@ -3,31 +3,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
-	  <link href="${ctx}/style/displaytag/css/screen.css" rel="stylesheet" type="text/css" />
 	  <script type="text/javascript">
 	     $(function(){
 	        $("#addTaskButton").click(function(){
 	             window.location="${ctx}/s3/work/new"
 	        });
+	       
+	        $("input[name='deleteWorkButton']").click(function(){
+	             if(confirm("do you really remove this work ? ")){
+	             
+	                $(this).parent().submit();
+	                //$("#deleteWorkForm").submit();
+	             }else{
+	                return "";
+	             }
+	        });
 	     })
 	  </script>
 	</head>
 	<body>
-        <div class="clear"></div>
-		<div>
+      
 			<display:table name="workContents" id="workContent" requestURI="${ctx}/s3/work" sort="external" defaultsort="1" pagesize="10" export="true">
 					<display:column property="beginTime" title="Begin Time"/>
 					<display:column property="endTime" title="End Time"/>
 					<display:column property="workDescription" title="Work Description"/>
 					<display:column title="Operation">
-					    <a href="${ctx}/s3/work/${workContent.id}/edit">Edit</a> ||
-					    <a href="${ctx}/s3/work/${workContent.id}/edit">Edit</a>
+					    
+					    <form id="deleteWorkForm" action="${ctx}/s3/work/${workContent.id}" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <a href="${ctx}/s3/work/${workContent.id}/edit" class="button">Edit</a>   ||  <input id="deleteWorkButton" name="deleteWorkButton" class="button" type="button" value="Delete" />
+                            
+                        </form>
 					</display:column>
 			</display:table>
 			
 			<div>
 			  <input id="addTaskButton" class="button" type="button" value="add"/>
 			</div>
-		</div>
+		
 	</body>
 </html>

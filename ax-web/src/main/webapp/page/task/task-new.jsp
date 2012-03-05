@@ -21,10 +21,9 @@
 	                <label for="title">Task Title:</label>
 	                <form:input path="title" size="5"/>
 	     
-	        <div class="type-text">
 	                <label for="detail">Task Detail:</label>
 	                <form:input path="detail" />
-	        </div>
+	       
 	        <div class="type-text">
 	                <label for="followAction">Task FollowAction:</label>
 	                <form:input path="followAction" />
