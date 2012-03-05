@@ -10,6 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.soar.ax.entity.IdEntity;
 
@@ -24,7 +26,8 @@ import com.soar.ax.entity.IdEntity;
 @Entity
 @Table(name="AX_USER")
 public class User extends IdEntity {
-
+    
+	private String username;
 	private String loginName;
 	private String password;
 	private String name;
@@ -37,6 +40,7 @@ public class User extends IdEntity {
 		joinColumns=@JoinColumn(name="USER_ID"),
 		inverseJoinColumns=@JoinColumn(name="ROLE_ID")
 	)
+	@Fetch(FetchMode.SUBSELECT) 
 	private Set<Role> roles;
 	
 	
@@ -84,5 +88,11 @@ public class User extends IdEntity {
 	}
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

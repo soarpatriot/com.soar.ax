@@ -3,13 +3,18 @@
  */
 package com.soar.ax.entity.authrization;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.soar.ax.entity.IdEntity;
 
@@ -21,8 +26,11 @@ import com.soar.ax.entity.IdEntity;
 @Table(name="AX_RIGHT")
 public class Right extends IdEntity {
 	
+	/*name space for right*/
 	private String rightSpace;
+	/*right type like ,menu,button,link*/
 	private String rightType;
+	/* below right type,right id */
 	private String rightId;
 	private boolean hasRight;
 	
@@ -31,7 +39,12 @@ public class Right extends IdEntity {
 			mappedBy = "rights",
 			targetEntity = Role.class
 	)
+	@Fetch(FetchMode.SUBSELECT) 
 	private Set<Role> roles;
+	
+	@OneToOne
+	@JoinColumn(name="SECURITY_RESOURCE_ID")
+	private SecurityResource securityResource;
 	
 	public String getRightSpace() {
 		return rightSpace;
@@ -62,6 +75,12 @@ public class Right extends IdEntity {
 	}
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	public SecurityResource getSecurityResource() {
+		return securityResource;
+	}
+	public void setSecurityResource(SecurityResource securityResource) {
+		this.securityResource = securityResource;
 	}
 
 }

@@ -3,6 +3,7 @@
  */
 package com.soar.ax.entity.authrization;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.soar.ax.entity.IdEntity;
 
@@ -30,6 +34,7 @@ public class Role extends IdEntity{
 			mappedBy = "roles",
 			targetEntity = User.class
 	)
+	@Fetch(FetchMode.SUBSELECT) 
 	private Set<User> users;
 	
 	@ManyToMany(targetEntity=Role.class,
@@ -39,7 +44,8 @@ public class Role extends IdEntity{
 		joinColumns=@JoinColumn(name="ROLE_ID"),
 		inverseJoinColumns=@JoinColumn(name="RIGHT_ID")
 	)
-	private Set<Right> rights;
+	@Fetch(FetchMode.SUBSELECT) 
+	private List<Right> rights;
 	
 	public String getRoleName() {
 		return roleName;
@@ -59,10 +65,10 @@ public class Role extends IdEntity{
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-	public Set<Right> getRights() {
+	public List<Right> getRights() {
 		return rights;
 	}
-	public void setRights(Set<Right> rights) {
+	public void setRights(List<Right> rights) {
 		this.rights = rights;
 	}
 	
