@@ -7,19 +7,33 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
     
-    <http pattern="/page/layout/**" security="none"/>
-    <http pattern="/page/common/**" security="none"/>
-    <http pattern="/page/error/**" security="none"/>
-    <http pattern="/page/main/**" security="none"/>
     <http pattern="/style/**" security="none"/>
     <http pattern="/assets/**" security="none"/>
     <http pattern="/scripts/**" security="none"/>
     <http pattern="/login.jsp*" security="none"/>
     <http pattern="/index.jsp*" security="none"/>
     
-    <http auto-config='true' use-expressions="true">
-		<intercept-url pattern="/page/work/**" access="ROLE_USER" />
-		<form-login login-page='/index.jsp' default-target-url='/s3/work' authentication-failure-url="/index.jsp"/>
+    <http pattern="/page/layout/**" security="none"/>
+    <http pattern="/page/common/**" security="none"/>
+    <http pattern="/page/error/**" security="none"/>
+    <http pattern="/page/main/**" security="none"/>
+    <http pattern="/page/login/**" security="none"/>
+    
+    <http pattern="/login/**" security="none"/>
+    
+   
+    <!-- 
+    		<intercept-url pattern="/page/work/**" access="ROLE_USER" />
+    
+     -->
+    <http auto-config="true" use-expressions="true">
+		<form-login login-page='/index.jsp' default-target-url='/work' authentication-failure-url="/index.jsp"/>
+		<logout/> 
+		<remember-me />  
+		<session-management invalid-session-url="/timeout.jsp">  
+           <concurrency-control max-sessions="10" error-if-maximum-exceeded="true" />  
+        </session-management>  
+		
 		<custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR"/> 
 		<access-denied-handler error-page="/page/error/no-right.jsp"/>
 	</http>

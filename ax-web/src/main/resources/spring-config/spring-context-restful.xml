@@ -26,6 +26,11 @@
 	        
 	    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
 		<mvc:annotation-driven/>
+		<mvc:default-servlet-handler/>
+		<mvc:resources mapping="/asssets/**" location="/asssets/" cache-period="31556926"/> 
+		<mvc:resources mapping="/style/**" location="/style/" cache-period="31556926"/> 
+		<mvc:resources mapping="/scripts/**" location="/scripts/" cache-period="31556926"/> 
+		
 	    <mvc:view-controller path="/" view-name="home"/>
 	    	
 		<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
