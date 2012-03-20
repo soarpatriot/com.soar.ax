@@ -29,6 +29,7 @@
     
     <script type="text/javascript" src="${ctx}/scripts/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript" src="${ctx}/scripts/jquery/jquery-1.4.4.min.js"></script>
+	<decorator:head></decorator:head>
   </head>
   
   <body data-spy="scroll" data-target=".subnav" data-offset="50">

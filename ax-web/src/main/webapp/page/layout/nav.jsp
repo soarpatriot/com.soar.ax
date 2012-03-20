@@ -13,8 +13,17 @@
       <a class="brand" href="./index.html">Bootstrap</a>
        -->
       <a class="brand" href="#">Project name</a>
-      
-      <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+      <c:if test="${not empty userId}">
+      </c:if>
+      <c:choose>  
+        <c:when test="${not empty userId}">
+             <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+           
+        </c:when>
+        <c:otherwise>
+             <p class="navbar-text pull-right"><a href="login">Login</a></p>
+        </c:otherwise>
+      </c:choose>
       
       <div class="nav-collapse">
         <ul class="nav">
