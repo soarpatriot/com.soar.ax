@@ -29,9 +29,14 @@ public class Right extends IdEntity {
 	/*name space for right*/
 	private String rightSpace;
 	/*right type like ,menu,button,link*/
+	private String rightSpaceDescription;
+	
 	private String rightType;
 	/* below right type,right id */
 	private String rightId;
+	
+	private String rightDescription;
+	
 	private boolean hasRight;
 	
 	@ManyToMany(
@@ -81,6 +86,18 @@ public class Right extends IdEntity {
 	}
 	public void setSecurityResource(SecurityResource securityResource) {
 		this.securityResource = securityResource;
+	}
+	public String getRightSpaceDescription() {
+		return rightSpaceDescription;
+	}
+	public void setRightSpaceDescription(String rightSpaceDescription) {
+		this.rightSpaceDescription = rightSpaceDescription;
+	}
+	public String getRightDescription() {
+		return rightDescription;
+	}
+	public void setRightDescription(String rightDescription) {
+		this.rightDescription = rightDescription;
 	}
 
 }
