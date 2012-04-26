@@ -6,7 +6,7 @@
 	  <script type="text/javascript">
 	     $(function(){
 	        $("#addTaskButton").click(function(){
-	             window.location="${ctx}/s3/work/new"
+	             window.location="${ctx}/work/new"
 	        });
 	       
 	        $("input[name='deleteWorkButton']").click(function(){
@@ -29,11 +29,10 @@
 					<display:column property="workDescription" title="Work Description"/>
 					<display:column title="Operation">
 					    
-					    <form id="deleteWorkForm" action="${ctx}/s3/work/${workContent.id}" method="post">
-                            <input type="hidden" name="_method" value="delete">
-                            <a href="${ctx}/s3/work/${workContent.id}/edit" class="button">Edit</a>   ||  <input id="deleteWorkButton" name="deleteWorkButton" class="button" type="button" value="Delete" />
+					    <form:form id="deleteWorkForm" method="delete" action="${ctx}/work/${workContent.id}">
+                            <a href="${ctx}/work/${workContent.id}/edit" class="button">Edit</a>   ||  <input id="deleteWorkButton" name="deleteWorkButton" class="button" type="button" value="Delete" />
                             
-                        </form>
+                        </form:form>
 					</display:column>
 			</display:table>
 			

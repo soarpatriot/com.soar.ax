@@ -18,7 +18,6 @@
     <!-- Le styles -->
     <link href="${ctx}/assets/css/bootstrap.css" rel="stylesheet">
     <link href="${ctx}/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="${ctx}/assets/css/docs.css" rel="stylesheet">
     <link href="${ctx}/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="${ctx}/assets/css/main.css" rel="stylesheet">
     
@@ -31,20 +30,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="${ctx}/assets/ico/apple-touch-icon-114x114.png">
     
     <script type="text/javascript" src="${ctx}/scripts/My97DatePicker/WdatePicker.js"></script>
-	
-	
-	<decorator:head></decorator:head>
-  </head>
-  
-  <body data-spy="scroll" data-target=".subnav" data-offset="50">
-       <%@ include file="/page/layout/nav.jsp"%>
-	   <div class="container">
-	   <div class="mini-height">
-	    <decorator:body></decorator:body>
-	   </div>
-	   <%@ include file="/page/layout/footer.jsp"%>  
-	   </div>
-	   <script src="${ctx}/assets/js/jquery.js"></script>
+	 <!-- Le javascript
+        ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+	    <script src="${ctx}/assets/js/jquery.js"></script>
+	    <script src="${ctx}/assets/js/google-code-prettify/prettify.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-transition.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-alert.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-modal.js"></script>
@@ -58,5 +48,18 @@
 	    <script src="${ctx}/assets/js/bootstrap-carousel.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-typeahead.js"></script>
 	    <script src="${ctx}/assets/js/application.js"></script>
+	<decorator:head></decorator:head>
+  </head>
+  
+  <body>
+       <%@ include file="/page/layout/nav.jsp"%>
+	   <div class="container">
+	   <div class="mini-height">
+	        <div></div>
+	     	<decorator:body></decorator:body>
+	   </div>
+	   <%@ include file="/page/layout/footer.jsp"%>  
+	   </div>
+	  
   </body>
 </html>

@@ -26,7 +26,7 @@
               ${role.roleName},
            </c:forEach>
          </td>
-         <td><a href="${ctx}/s3/authorization/${user.id}/user-roles">manage user's roles</a></td>     
+         <td><a href="${ctx}/authorization/${user.id}/user-roles">manage user's roles</a></td>     
        </tr>
        </c:forEach>
      </table>

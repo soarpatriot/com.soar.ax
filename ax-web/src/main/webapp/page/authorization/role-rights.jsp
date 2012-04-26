@@ -3,7 +3,9 @@
 <html>
   <head>
     <title>Role Rights</title>
-    
+    <script type="text/javascript">
+       
+    </script>
   </head>
   
   <body>
@@ -31,7 +33,8 @@
 	     <td>${role.roleName}</td>
 	     <td>${role.roleCode}</td>
 	     <td>${role.id}</td>
-	     <td></td>
+	     <td><a href="${ctx}/authorization/role-rights-edit">manage role right's</a>
+	     </td>
        </tr>
        </c:forEach>
        <tr>

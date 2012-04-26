@@ -18,7 +18,8 @@
       <c:choose>  
         <c:when test="${not empty userId}">
              <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
-           
+             <c:url value="/j_spring_security_logout" var="logoutUrl"/>
+             <li><a href="${logoutUrl}">Log Out</a></li>
         </c:when>
         <c:otherwise>
              <p class="navbar-text pull-right"><a href="login">Login</a></p>
@@ -27,11 +28,13 @@
       
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active">
+        
+         
+          <li class="<c:if test='${hightLight eq "Overview"}'>active</c:if>">
             <a href="./index.html">Overview</a>
           </li>
           
-          <li class="">
+          <li class="<c:if test='${hightLight eq "Components"}'>active</c:if>">
             <a href="./components.html">Components</a>
           </li>
           <li class="">
@@ -45,7 +48,7 @@
             <a href="./download.html">Customize</a>
           </li>
           <li class="">
-            <a href="./examples.html">Examples</a>
+            <a href="${ctx}/authorization">Management Authorization</a>
           </li>
           
           
