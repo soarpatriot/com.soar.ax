@@ -1,0 +1,27 @@
+/**AX OWN CSS**/
+body{
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.mini-height{
+	min-height:500px;
+}
+.align-left{
+	text-align:left;
+}
+.align-right{
+	text-align:right;
+}
+.align-center{
+	text-align:center;
+}
+
+.footer {
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  border-top: 1px solid #e5e5e5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #555;
+}
