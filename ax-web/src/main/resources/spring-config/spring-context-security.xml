@@ -20,15 +20,17 @@
     <http pattern="/page/login/**" security="none"/>
     
     <http pattern="/login/**" security="none"/>
-    
+    <http pattern="/right/**" security="none"/>
+    <http pattern="/role/**" security="none"/>
+    <http pattern="/authorization/**" security="none"/>
    
     <!-- 
     		<intercept-url pattern="/page/work/**" access="ROLE_USER" />
     
      -->
     <http auto-config="true" use-expressions="true">
-		<form-login login-page='/index.jsp' default-target-url='/work' authentication-failure-url="/index.jsp"/>
-		<logout/> 
+		<form-login login-page='/index.jsp' default-target-url='/work' authentication-failure-url="/login"/>
+		<logout invalidate-session="true" logout-success-url="/" logout-url="/j_spring_security_logout"/>
 		<remember-me />  
 		<session-management invalid-session-url="/timeout.jsp">  
            <concurrency-control max-sessions="10" error-if-maximum-exceeded="true" />  
