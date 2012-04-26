@@ -115,6 +115,19 @@ public class AuthorizationController extends BaseController{
 		mav.addObject("roles", roles);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/role-rights-edit",method = RequestMethod.GET)
+	public ModelAndView roleRightsEdit(@PathVariable long roleId){
+		List<Role> roles = rolesService.find("from Role");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("authorization/role-rights");
+		mav.addObject("roles", roles);
+		
+		
+		return mav;
+	}
+	
+	
 	public UsersService getUsersService() {
 		return usersService;
 	}

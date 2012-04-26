@@ -74,15 +74,6 @@ public class TaskController extends BaseController{
 	    public TaskController(){
 	    	nameSpace = "task";
 	    }
-	    @InitBinder
-	    protected void initBinder(WebDataBinder binder) {
-	    	
-	    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	    	PropertyEditor p = new CustomDateEditor(df,true);
-	    	binder.registerCustomEditor(Date.class, p);
-	    	
-	       
-	    }
 	    
 	    @RequestMapping(method = RequestMethod.GET)
 	    public ModelAndView index() {

@@ -76,22 +76,18 @@ public class WorkController extends BaseController{
 	    public WorkController(){
 	    	nameSpace = "work";
 	    }
-	    @InitBinder
-	    protected void initBinder(WebDataBinder binder) {
-	    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	    	PropertyEditor p = new CustomDateEditor(df,true);
-	    	binder.registerCustomEditor(Date.class, p);
-	    }
+	    
 	    
 	    @RequestMapping(method = RequestMethod.GET)
-	    public ModelAndView index() {
+	    public String index(Map<String,Object> model) {
 	    	
-	    	ModelAndView mav = new ModelAndView();
-			mav.setViewName(nameSpace+"/work-index");
+	    	//ModelAndView mav = new ModelAndView();
+			//mav.setViewName(nameSpace+"/work-index");
 			List<WorkContent> workContents = workService.find("from WorkContent");
-
-			mav.addObject("workContents", workContents);
-			return mav;
+			model.put("workContents", workContents);
+			model.put("hightLight", "Components");
+			//mav.addObject("workContents", workContents);
+			return nameSpace+"/work-index";
 	    }
 	    @RequestMapping(value = "/new", method = RequestMethod.GET)
 		public ModelAndView createNew() {
