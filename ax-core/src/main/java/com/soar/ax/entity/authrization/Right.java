@@ -3,13 +3,13 @@
  */
 package com.soar.ax.entity.authrization;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,18 +26,19 @@ import com.soar.ax.entity.IdEntity;
 @Table(name="AX_RIGHT")
 public class Right extends IdEntity {
 	
-	/*name space for right*/
-	private String rightSpace;
-	/*right type like ,menu,button,link*/
-	private String rightSpaceDescription;
+	
 	
 	private String rightType;
-	/* below right type,right id */
-	private String rightId;
+	/*below right type,right id */
+	
+	/*resource type like ,menu,button,link*/
+	private String resourceType;
 	
 	private String rightDescription;
 	
 	private boolean hasRight;
+	
+	private String resourceIdentity;
 	
 	@ManyToMany(
 			cascade = {CascadeType.PERSIST, CascadeType.MERGE},
@@ -51,10 +52,15 @@ public class Right extends IdEntity {
 	@JoinColumn(name="SECURITY_RESOURCE_ID")
 	private SecurityResource securityResource;
 	
-	public String getRightSpace() {
+	@ManyToOne
+	@JoinColumn(name="RIGHT_SPACE_ID")
+	private RightSpace rightSpace;
+	
+	
+	public RightSpace getRightSpace() {
 		return rightSpace;
 	}
-	public void setRightSpace(String rightSpace) {
+	public void setRightSpace(RightSpace rightSpace) {
 		this.rightSpace = rightSpace;
 	}
 	public String getRightType() {
@@ -63,12 +69,7 @@ public class Right extends IdEntity {
 	public void setRightType(String rightType) {
 		this.rightType = rightType;
 	}
-	public String getRightId() {
-		return rightId;
-	}
-	public void setRightId(String rightId) {
-		this.rightId = rightId;
-	}
+	
 	public boolean isHasRight() {
 		return hasRight;
 	}
@@ -87,17 +88,24 @@ public class Right extends IdEntity {
 	public void setSecurityResource(SecurityResource securityResource) {
 		this.securityResource = securityResource;
 	}
-	public String getRightSpaceDescription() {
-		return rightSpaceDescription;
-	}
-	public void setRightSpaceDescription(String rightSpaceDescription) {
-		this.rightSpaceDescription = rightSpaceDescription;
-	}
+	
 	public String getRightDescription() {
 		return rightDescription;
 	}
 	public void setRightDescription(String rightDescription) {
 		this.rightDescription = rightDescription;
+	}
+	public String getResourceType() {
+		return resourceType;
+	}
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
+	public String getResourceIdentity() {
+		return resourceIdentity;
+	}
+	public void setResourceIdentity(String resourceIdentity) {
+		this.resourceIdentity = resourceIdentity;
 	}
 
 }
