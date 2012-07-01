@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglibs.jsp"%>
+<%@ include file="/page/common/taglibs.jsp"%>
 <html>
   <head>
     
@@ -10,23 +10,22 @@
   </head>
   
   <body>
-    User list11. <br>
     
-    <table>
-        <tr>
-            <th>id</th>
-            <th>Role Name</th>
-            <th>Role Code</th>
-            
-        </tr>
-        
+    <table class="table table-bordered table-striped"> 
+        <thead>
+	        <tr>
+	            <th>id</th>
+	            <th>Role Name</th>
+	            <th>Role Code</th>
+	        </tr>
+        </thead>
        <c:forEach items="${roles}" var="role" >
            <tr>
 	            <td>${role.id}</td>
 	            <td>${role.roleName}</td>
 	            <td>${role.roleCode}</td>
-                <td><a href="${ctx}/s3/roles/${role.id}">show</a>
-                    <a href="${ctx}/s3/roles/${role.id}/edit">edit</a> 
+                <td><a href="${ctx}/roles/${role.id}">show</a>
+                    <a href="${ctx}/roles/${role.id}/edit">edit</a> 
                 </td>
                 <td>
                     <form action="roles/${role.id}" method="post">

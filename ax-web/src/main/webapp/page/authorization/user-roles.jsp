@@ -17,36 +17,39 @@
     
    </p>
    <div>
-     <form:form method="post" class="yform" commandName="userRolesWapper" action="${ctx}/s3/authorization/save-user-roles">
+     <form:form method="post" commandName="userRolesWapper" action="${ctx}/authorization/save-user-roles">
      <form:hidden path="userId" value="${userId}"/>
-     <table>
-      
+     <table class="table table-bordered table-striped">
+       <thead>
        <tr>
          <td>Check</td>
          <td>Role ID</td>
          <td>Role Name</td>
          <td>Role Code</td>
-       
+         <td>Role Rights</td>
        </tr>
+       </thead>
+       
+       <tbody>
+      
        <c:forEach items="${userRoles}" var="roleCheck">
        <tr>
          <td><form:checkbox path="roleIds" checked="${roleCheck.checked}" value="${roleCheck.role.id}"/>${roleCheck.role.id}</td>
          <td>${roleCheck.role.id}</td>
 	     <td>${roleCheck.role.roleName}</td>
 	     <td>${roleCheck.role.roleCode}</td>
+	     <td><a href="${ctx}/authorization/${roleCheck.role.id}/role-rights-edit">manage role right's</a>
        </tr>
        </c:forEach>
-       <tr>
-         <td>
-         	<div class="type-button">
+       </tbody>
+       
+      
+     </table>
+     <div class="type-button">
               <input class="button" type="button" value="button" id="button1" name="button1" />
               <input class="button" type="reset" value="reset" class="reset" id="reset" name="reset" />
               <input class="button" type="submit" value="Save Changes"  class="submit" id="submit" name="submit" />
             </div>
-         </td>
-       </tr>
-     </table>
-     
      </form:form>
    </div>
     

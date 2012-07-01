@@ -8,7 +8,8 @@
   <body>
    
    <div>
-     <table>
+     <table class="table table-bordered table-striped">
+       <thead>
        <tr>
          <td>User Name</td>
          <td>Login Name</td>
@@ -16,7 +17,11 @@
          <td>Own Role</td>
          <td>Modify Role</td>
        </tr>
+       </thead>
+       
+       <tbody>
        <c:forEach items="${users}" var="user">
+       
        <tr>
          <td>${user.id}</td>
 	     <td>${user.loginName}</td>
@@ -29,6 +34,7 @@
          <td><a href="${ctx}/authorization/${user.id}/user-roles">manage user's roles</a></td>     
        </tr>
        </c:forEach>
+       </tbody>
      </table>
    </div>
     

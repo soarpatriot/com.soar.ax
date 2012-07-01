@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -116,15 +117,12 @@ public class AuthorizationController extends BaseController{
 		return mav;
 	}
 	
-	@RequestMapping(value = "/role-rights-edit",method = RequestMethod.GET)
-	public ModelAndView roleRightsEdit(@PathVariable long roleId){
-		List<Role> roles = rolesService.find("from Role");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("authorization/role-rights");
-		mav.addObject("roles", roles);
+	@RequestMapping(value = "/{roleId}/role-rights-edit",method = RequestMethod.GET)
+	public String roleRightsEdit(@PathVariable long roleId,Model model){
+		Role role = rolesService.getEntityById(Role.class, roleId);
 		
-		
-		return mav;
+		model.addAttribute("role", role);
+		return "authorization/role-rights";
 	}
 	
 	

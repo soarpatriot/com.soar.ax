@@ -9,19 +9,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 /**
  * @author liuhb7
  *
  */
+@Controller
+
 public class BaseController {
 	
-	protected String nameSpace="";
+	protected String nameSpace = "";
 	
-	protected String hightLight="";
+	protected String hightLight = "";
+	
 	
 	public BaseController(){
 		hightLight = "";
@@ -33,4 +38,22 @@ public class BaseController {
     	PropertyEditor p = new CustomDateEditor(df,true);
     	binder.registerCustomEditor(Date.class, p);
     }
+
+	public String getNameSpace() {
+		return nameSpace;
+	}
+
+	public void setNameSpace(String nameSpace) {
+		this.nameSpace = nameSpace;
+	}
+
+	public String getHightLight() {
+		return hightLight;
+	}
+
+	public void setHightLight(String hightLight) {
+		this.hightLight = hightLight;
+	}
+
+	
 }

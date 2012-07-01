@@ -9,47 +9,93 @@
   </head>
   
   <body>
-   <p>
-     <h3> Manage role's rights</h3>
-    
-   </p>
+   <h3>Manage Role's Rights</h3>
    <div>
-     <form:form method="post" class="yform" commandName="userRolesWapper" action="${ctx}/s3/authorization/save-user-roles">
      
-     <table>
-      
-       <tr>
-         
-         <td>Role ID</td>
-         <td>Role Name</td>
-         <td>Role Code</td>
-         <td>Role Description</td>
-         <td>Manage Role Rights</td>
-       </tr>
-       <c:forEach items="${roles}" var="role">
-       <tr>
-         <td>${role.id}</td>
-         
-	     <td>${role.roleName}</td>
-	     <td>${role.roleCode}</td>
-	     <td>${role.id}</td>
-	     <td><a href="${ctx}/authorization/role-rights-edit">manage role right's</a>
-	     </td>
-       </tr>
-       </c:forEach>
-       <tr>
-         <td>
-         	<div class="type-button">
-              <input type="button" value="button" id="button1" name="button1" />
-              <input type="reset" value="reset" class="reset" id="reset" name="reset" />
-              <input type="submit" value="Save Changes"  class="submit" id="submit" name="submit" />
-            </div>
-         </td>
-       </tr>
-     </table>
-     
-     </form:form>
    </div>
-    
+   <div class="tab-pane fade" id="profile">
+		<section id="collapse">
+
+		<div class="row">
+
+			<div class="span12 columns">
+
+
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#collapseOne">
+								Collapsible Group Item #1 </a>
+						</div>
+						<div id="collapseOne" class="accordion-body collapse in">
+							<div class="accordion-inner">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life
+								accusamus terry richardson ad squid. 3 wolf moon officia
+								aute, non cupidatat skateboard dolor brunch. Food truck
+								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+								sunt aliqua put a bird on it squid single-origin coffee
+								nulla assumenda shoreditch et. Nihil anim keffiyeh
+								helvetica, craft beer labore wes anderson cred nesciunt
+								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								Leggings occaecat craft beer farm-to-table, raw denim
+								aesthetic synth nesciunt you probably haven't heard of them
+								accusamus labore sustainable VHS.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#collapseTwo">
+								Collapsible Group Item #2 </a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life
+								accusamus terry richardson ad squid. 3 wolf moon officia
+								aute, non cupidatat skateboard dolor brunch. Food truck
+								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+								sunt aliqua put a bird on it squid single-origin coffee
+								nulla assumenda shoreditch et. Nihil anim keffiyeh
+								helvetica, craft beer labore wes anderson cred nesciunt
+								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								Leggings occaecat craft beer farm-to-table, raw denim
+								aesthetic synth nesciunt you probably haven't heard of them
+								accusamus labore sustainable VHS.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#collapseThree">
+								Collapsible Group Item #3 </a>
+						</div>
+						<div id="collapseThree" class="accordion-body collapse">
+							<div class="accordion-inner">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life
+								accusamus terry richardson ad squid. 3 wolf moon officia
+								aute, non cupidatat skateboard dolor brunch. Food truck
+								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+								sunt aliqua put a bird on it squid single-origin coffee
+								nulla assumenda shoreditch et. Nihil anim keffiyeh
+								helvetica, craft beer labore wes anderson cred nesciunt
+								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								Leggings occaecat craft beer farm-to-table, raw denim
+								aesthetic synth nesciunt you probably haven't heard of them
+								accusamus labore sustainable VHS.
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+
+		</div>
+	  </section>
+	</div>
   </body>
 </html>

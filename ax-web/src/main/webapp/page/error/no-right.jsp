@@ -5,6 +5,7 @@
 <head>
     <title><fmt:message key="403.title"/></title>
     <meta name="heading" content="<fmt:message key='403.title'/>"/>
+    no right
 </head>
 
 <p>

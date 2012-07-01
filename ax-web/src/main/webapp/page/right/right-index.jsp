@@ -2,9 +2,18 @@
 <%@ include file="/page/common/taglibs.jsp"%>
 <html>
 	<head>
-		<title>Right display</title>
+	   <title>Right Display</title>
+	   <script type="text/javascript">
+	       
+	       $(function(){
+	          
+	          $("#add-right-btn").click(function(){
+	             window.location.href="${ctx}/right/new";
+	          })
+	       })
+	    </script>
 	</head>
-
+  
 	<body>
 
 		<section id="tabs">
@@ -16,7 +25,7 @@
 					Rights Management
 				</h2>
 				<p>
-					Click the tabs below to switch to the different Management style
+					Click the tabs below to switch to the different management style
 				</p>
 				<ul id="tab" class="nav nav-tabs">
 					<li class="active">
@@ -29,56 +38,53 @@
 				</ul>
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade in active" id="home">
+					    <p>
+					      <input type="button" id="add-right-btn" name="add-right" class="btn" value="Add Right"/> 
+					    </p>
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>
-										Right Space
+										Right Type
+									</th>
+									<th>
+										Resource Type
+									</th>
+									<th>
+										Resource ID
 									</th>
 									<th>
 										Right Description
 									</th>
 									<th>
-										Right Type
+									    Right Space
 									</th>
-									<th>
-										Right Id
-									</th>
+								
+									
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+							   <c:forEach var="right" items="${rights}" >
+							     <tr>
 									<td>
-										<code>
-											.clearfix()
-										</code>
+									 	${right.rightType}
 									</td>
 									<td>
-										<em class="muted">none</em>
+										${right.resourceType}
 									</td>
 									<td>
-										Add to any parent to clear floats within
+										${right.resourceIdentity}
 									</td>
 									<td>
-										Apply the Webkit focus style and round Firefox outline
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<code>
-											.tab-focus()
-										</code>
+										${right.rightDescription}
 									</td>
 									<td>
-										<em class="muted">none</em>
-									</td>
-									<td>
-										Apply the Webkit focus style and round Firefox outline
-									</td>
-									<td>
-										Apply the Webkit focus style and round Firefox outline
+										${right.rightSpace.name}
 									</td>
 								</tr>
+							   </c:forEach>
+								
+								
 
 							</tbody>
 						</table>
@@ -199,15 +205,16 @@
 							</div>
 
 						</div>
-
+					  </section>
 					</div>
+					
 				</div>
 
 
 			</div>
 
-
+          
 		</div>
-		<section></section>
+		</section>
 	</body>
 </html>

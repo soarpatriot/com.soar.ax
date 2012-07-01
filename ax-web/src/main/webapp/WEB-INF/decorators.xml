@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/page/layout">
+    <excludes> 
+              <pattern>/assets/*</pattern>               
+              <pattern>/style/*</pattern> 
+              <pattern>/scripts/*</pattern>   
+              <pattern>/page/common/*</pattern>
+              <pattern>/page/layout/*</pattern>       
+    </excludes> 
+  
+	
+    <decorator name="index-templeate" page="new-default-template.jsp">
+              <pattern>/*</pattern>          
+    </decorator>
+    <decorator name="little-templeate" page="little-template.jsp">
+              <pattern>/login</pattern>  
+              <pattern>/work</pattern>  
+              <pattern>/right</pattern>    
+              <pattern>/right/*</pattern>
+              <pattern>/right-space</pattern>
+              <pattern>/right-space/*</pattern> 
+              <pattern>/roles</pattern>       
+              <pattern>/roles/*</pattern>  
+              <pattern>/authorization</pattern>
+              <pattern>/authorization/*</pattern> 
+              
+    </decorator>
+   
+</decorators>

@@ -21,7 +21,8 @@
     
     <http pattern="/login/**" security="none"/>
     <http pattern="/right/**" security="none"/>
-    <http pattern="/role/**" security="none"/>
+    <http pattern="/right-space/**" security="none"/>
+    <http pattern="/roles/**" security="none"/>
     <http pattern="/authorization/**" security="none"/>
    
     <!-- 

@@ -7,12 +7,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.soar.ax.entity.authrization.Right;
+import com.soar.ax.entity.authrization.RightSpace;
 import com.soar.ax.service.manage.RightService;
+import com.soar.ax.service.manage.RightSpaceService;
 
 /**
  * <p>
@@ -58,9 +63,12 @@ public class RightController {
 	
 	    @Autowired
 		private RightService rightService;
+	    
+	    @Autowired
+		private RightSpaceService rightSpaceService;
 
 	    @RequestMapping(method = RequestMethod.GET)
-	    public ModelAndView index() {
+	    public ModelAndView list() {
 	    	
 	        ModelAndView mav = new ModelAndView();
 			mav.setViewName("right/right-index");
@@ -68,4 +76,42 @@ public class RightController {
 			mav.addObject("rights", rights);
 			return mav;
 	    }
+	    
+	    @RequestMapping(value = "/new", method = RequestMethod.GET)
+		public String initNew(Model model) {
+	    	Right right = new Right();
+	    	RightSpace rightSpace = new RightSpace();
+	    	right.setRightSpace(rightSpace);
+	    	
+	    	List<RightSpace> rightSapces = rightSpaceService.getAll(RightSpace.class);
+			
+			model.addAttribute("right", right);
+			model.addAttribute("rightSpaces", rightSapces);
+			
+			model.addAttribute("right11", "dddd");
+			return "right/right-new";
+		}
+
+	    @RequestMapping(method = RequestMethod.POST)
+		public String create(@ModelAttribute("right") Right right,RedirectAttributes redirectAttrse) {
+	    	
+	    	rightService.save(right);
+	    	redirectAttrse.addAttribute("message", "Save right success!");
+			return "redirect:/right";
+		}
+		public RightService getRightService() {
+			return rightService;
+		}
+
+		public void setRightService(RightService rightService) {
+			this.rightService = rightService;
+		}
+
+		public RightSpaceService getRightSpaceService() {
+			return rightSpaceService;
+		}
+
+		public void setRightSpaceService(RightSpaceService rightSpaceService) {
+			this.rightSpaceService = rightSpaceService;
+		}
 }

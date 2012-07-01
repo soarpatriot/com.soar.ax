@@ -1,4 +1,4 @@
-<%@ include file="/common/taglibs.jsp"%>
+<%@ include file="/page/common/taglibs.jsp"%>
 
 <page:applyDecorator name="default">
 
@@ -11,6 +11,7 @@
     <fmt:message key="403.message">
         <fmt:param><c:url value="/"/></fmt:param>
     </fmt:message>
+    unexcepted
 </p>
 <p style="text-align: center; margin-top: 20px">
     <a href="http://community.webshots.com/photo/56793801/56801692jkyHaR"
