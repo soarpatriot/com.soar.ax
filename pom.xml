@@ -17,8 +17,13 @@
 	</modules>
 
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-        <hibernate.version>3.5.1-Final</hibernate.version>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		    <!-- 
+		      <hibernate.version>3.5.1-Final</hibernate.version>
+
+		    -->
+        <hibernate.version>4.1.0.Final</hibernate.version>
+        
         <mybatis.version>3.0.4</mybatis.version>
         <struts.version>2.2.3</struts.version>
         <xwork.version>2.2.3</xwork.version>
@@ -117,6 +122,29 @@
            
         </dependency>
         <dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-core</artifactId>
+			    <version>${spring.version}</version>
+			 </dependency> 
+			 <dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-web</artifactId>
+			    <version>${spring.version}</version>
+			  </dependency> 
+			  <dependency>
+			    <groupId>org.springframework.security</groupId>
+			    <artifactId>spring-security-config</artifactId>
+			    <version>${spring.version}</version>
+			  </dependency>
+		    
+        <dependency>     
+        	<groupId>org.springframework.security</groupId>     
+        	<artifactId>spring-security-taglibs</artifactId>     
+        	<version>${spring.version}</version> 
+        </dependency> 
+
+        
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
@@ -126,6 +154,11 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        <dependency>  
+		      <groupId>org.hibernate</groupId>  
+		      <artifactId>hibernate-validator</artifactId>  
+		      <version>4.1.0.Final</version>  
+		    </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -390,6 +423,17 @@
     <artifactId>tiles-extras</artifactId>
     <version>2.2.2</version>
   </dependency>
+  
+  <dependency> 
+  	  <groupId>org.springframework.data</groupId> 
+  	  <artifactId>spring-data-mongodb</artifactId> 
+  	  <version>1.0.0.M4</version>
+  </dependency> 
+  <dependency>
+		  <groupId>displaytag</groupId>
+		  <artifactId>displaytag</artifactId>
+		  <version>1.2</version>
+	</dependency>
 	</dependencies>
 	
         <build>

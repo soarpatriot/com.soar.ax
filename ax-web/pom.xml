@@ -182,7 +182,7 @@
     
     <build>
         <defaultGoal>install</defaultGoal>
-        <finalName>ax-web</finalName> 
+        <finalName>ax</finalName> 
         <testResources>
 		    <testResource>
 			    <directory>src/main/resources</directory>
