@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.soar.ax.controller.manage;
 
 import java.util.ArrayList;
@@ -18,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soar.ax.controller.BaseController;
+import com.soar.ax.entity.authrization.Right;
 import com.soar.ax.entity.authrization.Role;
 import com.soar.ax.entity.authrization.User;
+import com.soar.ax.service.manage.AuthorizationService;
+import com.soar.ax.service.manage.RightService;
 import com.soar.ax.service.manage.RolesService;
-import com.soar.ax.service.manage.UsersRolesService;
 import com.soar.ax.service.manage.UsersService;
 import com.soar.ax.wapper.RoleCheckWapper;
+import com.soar.ax.wapper.RoleRightsForm;
 import com.soar.ax.wapper.UserRolesWapper;
 
 /**
@@ -41,7 +41,10 @@ public class AuthorizationController extends BaseController{
 	private RolesService rolesService;
 	
 	@Autowired
-	private UsersRolesService usersRolesService;
+	private RightService rightService;
+	
+	@Autowired
+	private AuthorizationService authorizationService;
 	
 	public AuthorizationController(){
 		nameSpace = "authorization";
@@ -120,9 +123,26 @@ public class AuthorizationController extends BaseController{
 	@RequestMapping(value = "/{roleId}/role-rights-edit",method = RequestMethod.GET)
 	public String roleRightsEdit(@PathVariable long roleId,Model model){
 		Role role = rolesService.getEntityById(Role.class, roleId);
+		RoleRightsForm roleRightsForm = new RoleRightsForm();
+		List<Right> rights = rightService.getAll(Right.class);
 		
-		model.addAttribute("role", role);
+		roleRightsForm.setRole(role);
+		roleRightsForm.setRights(rights);
+		roleRightsForm.fillRoleRights(role.getRights());
+		
+		model.addAttribute("roleRightsForm", roleRightsForm);
 		return "authorization/role-rights";
+	}
+	
+	@RequestMapping(value = "/role-rights",method = RequestMethod.POST)
+	public String updateRoleRights(@ModelAttribute("RoleRightsForm") RoleRightsForm roleRightsForm){
+		
+		long roleId = roleRightsForm.getRole().getId();
+		List<Long> roleRishts = roleRightsForm.getRoleRights();
+		//List<Right> rights =  roleRightsForm.obtainRights(roleRishts);
+		authorizationService.updateRoleRights(roleId,roleRishts);
+		
+		return "redirect:1/role-rights-edit";
 	}
 	
 	
@@ -142,11 +162,20 @@ public class AuthorizationController extends BaseController{
 		this.rolesService = rolesService;
 	}
 
-	public UsersRolesService getUsersRolesService() {
-		return usersRolesService;
+	
+	public AuthorizationService getAuthorizationService() {
+		return authorizationService;
 	}
 
-	public void setUsersRolesService(UsersRolesService usersRolesService) {
-		this.usersRolesService = usersRolesService;
+	public void setAuthorizationService(AuthorizationService authorizationService) {
+		this.authorizationService = authorizationService;
+	}
+
+	public RightService getRightService() {
+		return rightService;
+	}
+
+	public void setRightService(RightService rightService) {
+		this.rightService = rightService;
 	}
 }

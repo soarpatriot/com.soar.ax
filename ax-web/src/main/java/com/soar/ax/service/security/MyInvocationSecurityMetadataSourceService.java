@@ -12,11 +12,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -25,6 +20,8 @@ import org.springframework.security.web.util.AntPathRequestMatcher;
 import org.springframework.security.web.util.RequestMatcher;
 import org.springframework.stereotype.Service;
 
+import com.soar.ax.constants.ResourceType;
+import com.soar.ax.entity.authrization.Right;
 import com.soar.ax.service.BaseService;
 
 
@@ -37,7 +34,7 @@ public class MyInvocationSecurityMetadataSourceService extends BaseService imple
 	
 	 private RequestMatcher urlMatcher;
 
-	 private static Map<String, Collection<ConfigAttribute>> resourceMap = null;
+	 private static Map<String, Collection<ConfigAttribute>> resourceMap = new HashMap<String, Collection<ConfigAttribute>>();;
 
 	 public MyInvocationSecurityMetadataSourceService() {
 	     loadResourceDefine();
@@ -49,11 +46,11 @@ public class MyInvocationSecurityMetadataSourceService extends BaseService imple
 	   * 应当是资源为key， 权限为value。 资源通常为url， 权限就是那些以ROLE_为前缀的角色。 一个资源可以由多个权限来访问。
 	   * sparta
 	   */
-	  resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
-	  Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();
+	  
+	  /*Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();
 	  ConfigAttribute ca = new SecurityConfig("AU_WORK");
 	  atts.add(ca);
-	  resourceMap.put("/s3/work/**", atts);
+	  resourceMap.put("/work/**", atts);*/
 	  /*for (String auth : query) {
 	   ConfigAttribute ca = new SecurityConfig(auth);
 
@@ -85,8 +82,21 @@ public class MyInvocationSecurityMetadataSourceService extends BaseService imple
    }
 	 @Override
 	 public Collection<ConfigAttribute> getAllConfigAttributes() {
+		 
+		 String hql = "from Right r where r.resourceType='URL'";
+		 List<Right> rights = find(hql);
+		 
+		 Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();
+		 for(Right r : rights){
+			
+			 ConfigAttribute ca = new SecurityConfig(String.valueOf(r.getId()));
+			 atts.add(ca);
+			 resourceMap.put(r.getResourceIdentity(),atts);
 
-	  return null;
+		 }
+		 
+		 
+	  return atts;
 	 }
 
 	 // 根据URL，找到相关的权限配置。
@@ -94,7 +104,7 @@ public class MyInvocationSecurityMetadataSourceService extends BaseService imple
 	 public Collection<ConfigAttribute> getAttributes(Object object)
 	   throws IllegalArgumentException {
       
-		 
+		 getAllConfigAttributes();	 
 	  // object 是一个URL，被用户请求的url。
 	  String url = ((FilterInvocation) object).getRequestUrl();
 	  

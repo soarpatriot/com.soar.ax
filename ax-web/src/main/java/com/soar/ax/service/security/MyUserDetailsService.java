@@ -14,11 +14,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.test.annotation.NotTransactional;
 
-import com.soar.ax.entity.authrization.Role;
 import com.soar.ax.entity.authrization.SecurityResource;
 import com.soar.ax.service.BaseService;
+import com.soar.ax.wapper.MyGrantedAuthority;
 
 /**
  * @author liuhb7
@@ -36,14 +35,14 @@ public class MyUserDetailsService extends BaseService implements UserDetailsServ
 	            throw new UsernameNotFoundException(username);
 	     }
 		 
-		 findUserSecurityResourceByUserName(username);
-	     Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
+		 //findUserSecurityResourceByUserName(username);
+	     /*Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
 	     GrantedAuthority ga = new MyGrantedAuthority();
 	  
 		  //得到用户的权限
-		  auths.add(ga);
+		  auths.add(ga);*/
 		  
-		  return new User(user.getUsername(),user.getPassword(),auths);
+		  return new User(user.getUsername(),user.getPassword(),user.getAuthorities());
 	 }
 	 
 	 public com.soar.ax.entity.authrization.User findUserByUserName(String username){

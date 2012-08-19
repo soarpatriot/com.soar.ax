@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.soar.ax.dao.HibernateGeneralDao;
 import com.soar.ax.dao.MyBatisGeneralDao;
+import com.soar.ax.wapper.MyGrantedAuthority;
 
 /**
  * @author liuhb7
@@ -53,10 +54,10 @@ public class MyAuthenticationProvider<T> extends AbstractUserDetailsAuthenticati
 	     com.soar.ax.entity.authrization.User user = findUserByUserName(username, pass);
 		  //得到用户的权限
 		  auths.add(ga);
+		 
+		  //String password = "12456";
 		  
-		  String password = "12456";
-		  
-		  return new User( username, password, auths);
+		  return new User( username, user.getPassword(), user.getAuthorities());
 		
 	}
 	

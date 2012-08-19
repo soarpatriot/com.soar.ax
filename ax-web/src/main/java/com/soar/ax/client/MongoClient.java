@@ -3,8 +3,6 @@
  */
 package com.soar.ax.client;
 
-import  org.springframework.data.document.mongodb.config.*;
-
 import java.util.List;
 
 import org.apache.commons.logging.Log;

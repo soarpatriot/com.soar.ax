@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.test.annotation.NotTransactional;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,6 +66,29 @@ public class BaseService<T> {
 	    @Autowired
 	    protected MyBatisGeneralDao myBatisGeneralDao;
 	    
+	    @Autowired
+	    protected MongoTemplate mongoTemplate;
+	    
+	    public List<T> getMongoAll(Class<T> classType){
+	    	return mongoTemplate.findAll(classType);
+	    }
+	    
+	    public List<T> getObjFromMongo(Query query, Class<T> t){
+	    	return mongoTemplate.find(query, t);
+	    }
+	    
+	    public void saveToMongo(T t){
+	    	 mongoTemplate.save(t);
+	    }
+	    
+	    public void deleteFromMongo(T t){
+	    	mongoTemplate.remove(t);
+	    }
+	    
+	    public void removeFromMongo(Query query, Class<T> t){
+	    	mongoTemplate.remove(query, t);
+	    }
+	    
 	    @NotTransactional
 	    public T getEntityById(Class<T> classType, Serializable id){
 	    	return hibernateGeneralDao.getHibernateTemplate().get(classType, id);  
@@ -101,6 +126,9 @@ public class BaseService<T> {
 	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().find(queryString);
 	    }
 	    
+	    public List<T> find(String queryString,Object value){
+	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().find(queryString, value);
+	    }
 	    
 	    public List<T> findByCriteria(DetachedCriteria criteria){
 	    	return (List<T>)hibernateGeneralDao.getHibernateTemplate().findByCriteria(criteria);
@@ -126,5 +154,13 @@ public class BaseService<T> {
 
 		public void setMyBatisGeneralDao(MyBatisGeneralDao myBatisGeneralDao) {
 			this.myBatisGeneralDao = myBatisGeneralDao;
+		}
+
+		public MongoTemplate getMongoTemplate() {
+			return mongoTemplate;
+		}
+
+		public void setMongoTemplate(MongoTemplate mongoTemplate) {
+			this.mongoTemplate = mongoTemplate;
 		}
 }
