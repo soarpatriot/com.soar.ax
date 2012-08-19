@@ -37,7 +37,7 @@ public class Role extends IdEntity{
 	@Fetch(FetchMode.SUBSELECT) 
 	private Set<User> users;
 	
-	@ManyToMany(targetEntity=Role.class,
+	@ManyToMany(targetEntity=Right.class,
 			cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
 		name="AX_ROLE_RIGHT",

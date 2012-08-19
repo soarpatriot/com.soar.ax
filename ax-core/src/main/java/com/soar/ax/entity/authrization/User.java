@@ -1,5 +1,7 @@
 package com.soar.ax.entity.authrization;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,8 +14,11 @@ import javax.persistence.Table;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.security.core.GrantedAuthority;
 
 import com.soar.ax.entity.IdEntity;
+import com.soar.ax.wapper.MyGrantedAuthority;
+
 
 /**
  * 
@@ -47,6 +52,28 @@ public class User extends IdEntity {
 	public User()
 	{
 		
+	}
+	
+	public Collection<GrantedAuthority> getAuthorities(){
+		Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
+		if(null != this.getRoles() && !this.getRoles().isEmpty()){
+			for(Role r : this.getRoles()){
+				if(null != r.getRights() && !r.getRights().isEmpty()){
+					for(Right right:r.getRights()){
+						MyGrantedAuthority ga = new MyGrantedAuthority();
+						String rightId = String.valueOf(right.getId());
+						
+						ga.setRightId(rightId);
+						auths.add(ga);
+					}
+				}
+			}
+		}else{
+			return null;
+		}
+		
+	    
+	    return auths;
 	}
 	public String getLoginName() {
 		return loginName;
