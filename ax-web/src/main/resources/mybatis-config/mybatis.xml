@@ -8,12 +8,11 @@
 		<!-- changes from the defaults -->
 		<setting name="lazyLoadingEnabled" value="false" />
 	</settings>
-	<!-- 
+	
 	<typeAliases>
-        <typeAlias alias="salesOrder" type="com.lenovo.ovp.entity.SalesOrder" />
-       
+        <typeAlias alias="salesOrderEntity" type="com.soar.ax.entity.ovp.SalesOrderEntity" />
+        <typeAlias alias="salesOrder" type="com.soar.ax.entity.ovp.SalesOrder" />
 	</typeAliases>
-	 -->
 	
 
 </configuration>
