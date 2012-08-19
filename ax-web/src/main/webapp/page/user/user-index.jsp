@@ -7,9 +7,9 @@
 	</head>
 
 	<body>
-        <div class="clear"></div>
+        
 		<div>
-			<table>
+			<table class="table table-bordered table-striped">
 				<tr>
 					<th>
 						id
@@ -40,8 +40,8 @@
 							${user.password}
 						</td>
 						<td>
-							<a href="${ctx}/s3/users/${user.id}">show</a>
-							<a href="${ctx}/s3/users/${user.id}/edit">edit</a>
+							<a href="${ctx}/users/${user.id}">show</a>
+							<a href="${ctx}/users/${user.id}/edit">edit</a>
 						</td>
 						<td>
 							<form action="users/${user.id}" method="post">
@@ -55,7 +55,7 @@
 
 			</table>
 			<p>
-				<a href="${ctx}/s3/users/new">Create New User</a>
+				<a href="${ctx}/users/new">Create New User</a>
 			</p>
 		</div>
 

@@ -4,7 +4,11 @@
   <head>
     <title>Role Rights</title>
     <script type="text/javascript">
-       
+       $(function(){
+          $("#change-role-right-btn").click(function(){
+             $("#change-role-rights-form").submit();
+          })
+       })
     </script>
   </head>
   
@@ -15,12 +19,14 @@
    </div>
    <div class="tab-pane fade" id="profile">
 		<section id="collapse">
-
+        
+        <form:form id="change-role-rights-form" action="${ctx}/authorization/role-rights" commandName="roleRightsForm" method="post">
+        <form:hidden path="role.id"/>
 		<div class="row">
 
 			<div class="span12 columns">
 
-
+           
 				<div class="accordion" id="accordion2">
 					<div class="accordion-group">
 						<div class="accordion-heading">
@@ -30,17 +36,11 @@
 						</div>
 						<div id="collapseOne" class="accordion-body collapse in">
 							<div class="accordion-inner">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life
-								accusamus terry richardson ad squid. 3 wolf moon officia
-								aute, non cupidatat skateboard dolor brunch. Food truck
-								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-								sunt aliqua put a bird on it squid single-origin coffee
-								nulla assumenda shoreditch et. Nihil anim keffiyeh
-								helvetica, craft beer labore wes anderson cred nesciunt
-								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-								Leggings occaecat craft beer farm-to-table, raw denim
-								aesthetic synth nesciunt you probably haven't heard of them
-								accusamus labore sustainable VHS.
+							    <!-- 
+							  <form:checkboxes items="${roleRightsForm.rights}" value="" path="rights" />
+							    
+							     -->
+								
 							</div>
 						</div>
 					</div>
@@ -52,17 +52,10 @@
 						</div>
 						<div id="collapseTwo" class="accordion-body collapse">
 							<div class="accordion-inner">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life
-								accusamus terry richardson ad squid. 3 wolf moon officia
-								aute, non cupidatat skateboard dolor brunch. Food truck
-								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-								sunt aliqua put a bird on it squid single-origin coffee
-								nulla assumenda shoreditch et. Nihil anim keffiyeh
-								helvetica, craft beer labore wes anderson cred nesciunt
-								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-								Leggings occaecat craft beer farm-to-table, raw denim
-								aesthetic synth nesciunt you probably haven't heard of them
-								accusamus labore sustainable VHS.
+								<c:forEach var="right" items="${roleRightsForm.rights}">
+								  <form:checkbox  path="roleRights" value="${right.id}"/>${right.rightType}
+								</c:forEach>
+								
 							</div>
 						</div>
 					</div>
@@ -74,12 +67,7 @@
 						</div>
 						<div id="collapseThree" class="accordion-body collapse">
 							<div class="accordion-inner">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life
-								accusamus terry richardson ad squid. 3 wolf moon officia
-								aute, non cupidatat skateboard dolor brunch. Food truck
-								quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-								sunt aliqua put a bird on it squid single-origin coffee
-								nulla assumenda shoreditch et. Nihil anim keffiyeh
+								
 								helvetica, craft beer labore wes anderson cred nesciunt
 								sapiente ea proident. Ad vegan excepteur butcher vice lomo.
 								Leggings occaecat craft beer farm-to-table, raw denim
@@ -95,6 +83,11 @@
 			</div>
 
 		</div>
+		<div class="form-actions">
+            <input type="button" id="change-role-right-btn" class="btn btn-primary" value="确定"/>
+            <button class="btn">Cancel</button>
+		</div>
+		</form:form>
 	  </section>
 	</div>
   </body>

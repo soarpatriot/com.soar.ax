@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/page/common/taglibs.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -10,10 +10,10 @@
   </head>
   
   <body>
-    <form:form method="post" commandName="role" action="/ax-web/s3/roles">
+    <form:form method="post" commandName="role" action="${ctx}/roles">
         <table>
 				<tr>
-				<td>Role Name:</td>
+				<td>Role Name1:</td>
 				<td><form:input path="roleName" /></td>
 				</tr>
 				<tr>

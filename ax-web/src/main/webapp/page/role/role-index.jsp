@@ -39,7 +39,7 @@
       
     </table> 
     <p>
-      <a href="${ctx}/s3/roles/new">Create New User</a>
+      <a href="${ctx}/roles/new">Create New User</a>
     </p>
   </body>
 </html>
