@@ -23,6 +23,8 @@
               <pattern>/roles/*</pattern>  
               <pattern>/authorization</pattern>
               <pattern>/authorization/*</pattern> 
+              <pattern>/users</pattern>
+              <pattern>/users/*</pattern> 
               
     </decorator>
    
