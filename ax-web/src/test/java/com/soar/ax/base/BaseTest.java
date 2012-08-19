@@ -7,8 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -50,8 +48,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring-config/spring-context.xml",
-															"classpath:spring-config/spring-context-transactionPolicy.xml"
-	
+			   "classpath:spring-config/spring-context-transactionPolicy.xml",
+			  
+			
+				"classpath:spring-config/spring-context-log.xml",
+				"classpath:spring-config/spring-context-security.xml",
+				"classpath:spring-config/spring-context-mongo.xml"
 })
 /*@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
 @Transactional*/
