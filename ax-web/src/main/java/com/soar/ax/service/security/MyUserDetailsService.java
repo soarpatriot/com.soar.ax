@@ -42,7 +42,7 @@ public class MyUserDetailsService extends BaseService implements UserDetailsServ
 		  //得到用户的权限
 		  auths.add(ga);*/
 		  
-		  return new User(user.getUsername(),user.getPassword(),user.getAuthorities());
+		 return new User(user.getUsername(),user.getPassword(),user.getAuthorities());
 	 }
 	 
 	 public com.soar.ax.entity.authrization.User findUserByUserName(String username){

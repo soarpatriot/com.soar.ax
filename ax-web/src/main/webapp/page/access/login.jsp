@@ -62,35 +62,32 @@
 		
 	   </div>
 	   <div class="container">
-		  <form id="login-form" action="${ctx}/j_spring_security_check" method="post" class="form-horizontal">
+		  <form id="login-form" action="${ctx}/j_spring_security_check" method="post" class="form-horizontal well">
 		       <fieldset>
 			       <legend>用户登录</legend>
-	               <div id="username-group" class="control-group">
-	               <label class="control-label" for="input01">用户名：</label>
-	               <div class="controls">
-	               <input type="text" id="username" class="input" name="j_username" value="${sessionScope['SPRING_SECURITY_LAST_USERNAME']}" />
-	               </div>
+		               <div id="username-group" class="control-group">
+		               <label class="control-label" for="j_username">用户名：</label>
+		               <div class="controls">
+		                  <input type="text" id="username" class="input" name="j_username" value="${sessionScope['SPRING_SECURITY_LAST_USERNAME']}" />
+		               </div>
 	               </div>
 	               
 	               <div id="passowrd-group" class="control-group">
-	               <label class="control-label" for="input01">密码：</label>
-	               <div class="controls">
-	               <input type="password" id="password" name="j_password" value="" />
-	               </div>
+		               <label class="control-label" for="j_password">密码：</label>
+		               <div class="controls">
+		               <input type="password" id="password" name="j_password" value="" />
+		               </div>
 	               </div>
 	               
 	               <div class="control-group">
-		            <label class="control-label" for="optionsCheckbox"></label>
-		            <div class="controls">
-		              <label class="checkbox">
-		                <input type="checkbox" name="_spring_security_remember_me" />
-		                   两周之内不必登陆
-		              </label>
-		            </div>
+			           <label class="control-label" for="optionsCheckbox"></label>
+			           <div class="controls">
+			              <label class="checkbox">
+			                <input type="checkbox" name="_spring_security_remember_me" />
+			                   两周之内不必登陆
+			              </label>
+			           </div>
 		          </div>
-	               
-	              
-	               
 	               <div class="form-actions">
 		            <input type="button" id="login-button" class="btn btn-primary" value="登录"/>
 		            <button class="btn">Cancel</button>

@@ -22,7 +22,8 @@
              <li><a href="${logoutUrl}">Log Out</a></li>
         </c:when>
         <c:otherwise>
-             <p class="navbar-text pull-right"><a href="login">Login</a></p>
+             <p class="navbar-text pull-right"><a href="${ctx}/access/login">Login</a> / <a href="${ctx}/access/register">Register</a></p>
+             
         </c:otherwise>
       </c:choose>
       
@@ -37,16 +38,8 @@
           <li class="<c:if test='${hightLight eq "Components"}'>active</c:if>">
             <a href="./components.html">Components</a>
           </li>
-          <li class="">
-            <a href="./javascript.html">Javascript plugins</a>
-          </li>
-          <li class="">
-            <a href="./less.html">Using LESS</a>
-          </li>
-          <li class="divider-vertical"></li>
-          <li class="">
-            <a href="./download.html">Customize</a>
-          </li>
+         
+          
           <li class="">
             <a href="${ctx}/authorization">Management Authorization</a>
           </li>

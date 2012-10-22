@@ -11,10 +11,10 @@
      <table class="table table-bordered table-striped">
        <thead>
        <tr>
+         <td>User ID</td>
          <td>User Name</td>
-         <td>Login Name</td>
          <td>Email</td>
-         <td>Own Role</td>
+         <td>Password</td>
          <td>Modify Role</td>
        </tr>
        </thead>
@@ -24,7 +24,8 @@
        
        <tr>
          <td>${user.id}</td>
-	     <td>${user.loginName}</td>
+	     <td>${user.username}</td>
+	     <td>${user.email}</td>
 	     <td>${user.password}</td>
          <td>
            <c:forEach items="${user.roles}" var="role">
