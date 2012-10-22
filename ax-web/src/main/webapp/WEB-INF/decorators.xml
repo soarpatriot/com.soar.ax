@@ -25,7 +25,8 @@
               <pattern>/authorization/*</pattern> 
               <pattern>/users</pattern>
               <pattern>/users/*</pattern> 
-              
+              <pattern>/access</pattern>
+              <pattern>/access/*</pattern> 
     </decorator>
    
 </decorators>

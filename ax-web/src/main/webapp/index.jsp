@@ -22,12 +22,7 @@
 	    <li><a href="https://github.com/twitter/bootstrap/wiki/Roadmap">Roadmap</a></li>
 	    <li><a href="https://github.com/twitter/bootstrap/wiki/Changelog">Changelog</a></li>
 	    <li class="divider">&middot;</li>
-	    <li>
-	      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="114px" height="20px"></iframe>
-	    </li>
-	    <li>
-	      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-	    </li>
+	  
 	    <li class="divider">&middot;</li>
 	    <li class="follow-btn">
 	      <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-width="145px" data-link-color="#0069D6" data-show-count="false">Follow @twbootstrap</a>

@@ -53,13 +53,12 @@
   
   <body>
        <%@ include file="/page/layout/nav.jsp"%>
-	   <div class="container">
-	   <div class="mini-height">
-	        <div></div>
-	     	<decorator:body></decorator:body>
+	   <div class="container mini-height">
+	        <decorator:body>
+	     	</decorator:body>
 	   </div>
 	   <%@ include file="/page/layout/footer.jsp"%>  
-	   </div>
+	   
 	  
-  </body>
+   </body>
 </html>
