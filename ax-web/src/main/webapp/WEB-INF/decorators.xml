@@ -12,6 +12,10 @@
     <decorator name="index-templeate" page="new-default-template.jsp">
               <pattern>/*</pattern>          
     </decorator>
+    <decorator name="bare-templeate" page="bare-template.jsp">
+              <pattern>/access</pattern>
+              <pattern>/access/*</pattern>           
+    </decorator>
     <decorator name="little-templeate" page="little-template.jsp">
               <pattern>/login</pattern>  
               <pattern>/work</pattern>  
@@ -25,8 +29,7 @@
               <pattern>/authorization/*</pattern> 
               <pattern>/users</pattern>
               <pattern>/users/*</pattern> 
-              <pattern>/access</pattern>
-              <pattern>/access/*</pattern> 
+              
     </decorator>
    
 </decorators>

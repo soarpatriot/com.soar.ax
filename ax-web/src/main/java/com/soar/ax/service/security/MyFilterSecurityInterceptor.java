@@ -52,7 +52,7 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor
 		} finally {
 			super.afterInvocation(token, null);
 		}
-
+        
 	}
 
 	@Override

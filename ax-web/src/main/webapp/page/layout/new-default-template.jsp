@@ -18,7 +18,7 @@
     <!-- Le styles -->
     <link href="${ctx}/assets/css/bootstrap.css" rel="stylesheet">
     <link href="${ctx}/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="${ctx}/assets/css/docs.css" rel="stylesheet">
+ 
     <link href="${ctx}/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="${ctx}/assets/css/main.css" rel="stylesheet">
     
@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="${ctx}/assets/ico/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="${ctx}/assets/ico/apple-touch-icon-114x114.png">
     
-    <script type="text/javascript" src="${ctx}/scripts/My97DatePicker/WdatePicker.js"></script>
+    
 	
 	
 	<decorator:head></decorator:head>
@@ -38,13 +38,16 @@
   
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
        <%@ include file="/page/layout/nav.jsp"%>
-	   <div class="container">
-	   <div class="mini-height">
-	    <decorator:body></decorator:body>
+	   <div class="container mini-height">
+	   
+	     <decorator:body></decorator:body>
+	  
+	     
 	   </div>
 	   <%@ include file="/page/layout/footer.jsp"%>  
-	   </div>
-	   <script src="${ctx}/assets/js/jquery.js"></script>
+	    <script type="text/javascript" src="${ctx}/scripts/My97DatePicker/WdatePicker.js"></script>
+    	<script src="assets/js/jquery.js"></script>
+    	<script src="assets/js/google-code-prettify/prettify.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-transition.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-alert.js"></script>
 	    <script src="${ctx}/assets/js/bootstrap-modal.js"></script>

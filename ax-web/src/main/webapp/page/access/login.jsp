@@ -61,40 +61,89 @@
 		  </font>
 		
 	   </div>
-	   <div class="container">
-		  <form id="login-form" action="${ctx}/j_spring_security_check" method="post" class="form-horizontal well">
+	   
+	   
+	   <div class="content">
+		  <form id="login-form" action="${ctx}/j_spring_security_check" method="post" class="form-vertical  sign-in">
 		       <fieldset>
-			       <legend>用户登录</legend>
-		               <div id="username-group" class="control-group">
+			      
+		           <div id="username-group" class="control-group">
 		               <label class="control-label" for="j_username">用户名：</label>
 		               <div class="controls">
-		                  <input type="text" id="username" class="input" name="j_username" value="${sessionScope['SPRING_SECURITY_LAST_USERNAME']}" />
+		                  <input type="text" id="username" class="input-large340" name="j_username" value="${sessionScope['SPRING_SECURITY_LAST_USERNAME']}" />
 		               </div>
 	               </div>
 	               
 	               <div id="passowrd-group" class="control-group">
 		               <label class="control-label" for="j_password">密码：</label>
 		               <div class="controls">
-		               <input type="password" id="password" name="j_password" value="" />
+		                <input type="password" id="password" class="input-large340"  name="j_password" value="" />
 		               </div>
 	               </div>
 	               
 	               <div class="control-group">
-			           <label class="control-label" for="optionsCheckbox"></label>
 			           <div class="controls">
-			              <label class="checkbox">
-			                <input type="checkbox" name="_spring_security_remember_me" />
-			                   两周之内不必登陆
-			              </label>
-			           </div>
-		          </div>
-	               <div class="form-actions">
-		            <input type="button" id="login-button" class="btn btn-primary" value="登录"/>
-		            <button class="btn">Cancel</button>
-		          </div>
+							<input type="checkbox" name="_spring_security_remember_me" />&nbsp;两周之内不必登陆
+					   </div>
+			       </div>
+	               <div class="control-group">
+	                    <div class="controls">
+			              <input type="button" id="login-button" class="btn btn-primary" value="登录"/>
+			              <div class="pull-right">
+			                 <a href="#s">忘记密码</a>
+			              </div>
+			        </div>
+				  </div>
                </fieldset>
-		      
 		  </form>
+		  
+		  <div class="sign-in">
+		       Getting Start with AX is easy 
+		       <span class="pull-right">
+		          <a href="#">注册</a>
+		       </span>
+		      
+		  </div>
 		</div>
+ 
+ 		<div class="background-red">
+ 		
+ 		  <div class="sky background-red">
+ 		  </div>
+ 		  <div class="landscape background-red">
+ 		     <pre class="background-red">
+ 		      sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+             sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
+ 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf 		     
+ 		     
+ 		     </pre>
+ 		    
+ 		  </div>
+ 		 
+	     
+	    </div>
 	</body>
 </html>

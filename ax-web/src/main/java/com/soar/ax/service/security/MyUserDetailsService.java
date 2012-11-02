@@ -3,12 +3,10 @@
  */
 package com.soar.ax.service.security;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import com.soar.ax.entity.authrization.SecurityResource;
 import com.soar.ax.service.BaseService;
-import com.soar.ax.wapper.MyGrantedAuthority;
 
 /**
  * @author liuhb7
@@ -41,7 +38,9 @@ public class MyUserDetailsService extends BaseService implements UserDetailsServ
 	  
 		  //得到用户的权限
 		  auths.add(ga);*/
-		  
+		 //SecurityContextPersistenceFilter
+		 //${SPRING_SECURITY_CONTEXT}
+		 //(SecurityContext)SecurityContextHolder.getContext().getAuthentication().get
 		 return new User(user.getUsername(),user.getPassword(),user.getAuthorities());
 	 }
 	 

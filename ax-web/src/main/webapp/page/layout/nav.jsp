@@ -1,4 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="org.springframework.security.core.context.*" %>
+
+<%@ page import="org.springframework.security.core.Authentication" %>
+<%@ page import="org.springframework.security.core.GrantedAuthority" %>
 <%@ include file="/page/common/taglibs.jsp"%>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -9,21 +13,21 @@
         <span class="icon-bar"></span>
       </a>
       
-      <!-- 
-      <a class="brand" href="./index.html">Bootstrap</a>
-       -->
+      
       <a class="brand" href="#">Project name</a>
       <c:if test="${not empty userId}">
       </c:if>
       <c:choose>  
-        <c:when test="${not empty userId}">
-             <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+        <c:when test="${not empty SPRING_SECURITY_CONTEXT.authentication.principal.username}">
+             
              <c:url value="/j_spring_security_logout" var="logoutUrl"/>
-             <li><a href="${logoutUrl}">Log Out</a></li>
+             <p class="navbar-text pull-right">Logged in as <a href="#">${SPRING_SECURITY_CONTEXT.authentication.principal.username}</a> /
+                <a href="${logoutUrl}">Log Out</a>
+             </p>
+             
         </c:when>
         <c:otherwise>
              <p class="navbar-text pull-right"><a href="${ctx}/access/login">Login</a> / <a href="${ctx}/access/register">Register</a></p>
-             
         </c:otherwise>
       </c:choose>
       

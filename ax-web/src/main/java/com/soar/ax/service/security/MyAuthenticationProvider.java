@@ -12,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -68,6 +69,7 @@ public class MyAuthenticationProvider<T> extends AbstractUserDetailsAuthenticati
 			  return users.get(0);
 		  }
 		  return null;
+		  
 	}
 
 	public HibernateGeneralDao<T> getHibernateGeneralDao() {

@@ -62,5 +62,6 @@ public class AccessController {
 		User user = new User();
 		model.addAttribute("user", user);
 		return "access/register";
+		
 	}
 }

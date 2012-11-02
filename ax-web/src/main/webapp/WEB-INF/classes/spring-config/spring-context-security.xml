@@ -33,7 +33,7 @@
     
      -->
     <http auto-config="true" use-expressions="true">
-		<form-login login-page='/index.jsp' default-target-url='/work' authentication-failure-url="/login"/>
+		<form-login login-page='/index.jsp' default-target-url='/work' authentication-failure-url="/access/login"/>
 		<logout invalidate-session="true" logout-success-url="/" logout-url="/j_spring_security_logout"/>
 		<remember-me />  
 		<session-management invalid-session-url="/timeout.jsp">  
