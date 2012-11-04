@@ -4,7 +4,7 @@
 	<head>
 		<script type="text/javascript">
 		   $(function(){
-		       $(".alert").alert('close')
+		       //$(".alert").alert('close')
 		       $("#login-button").click(function(){
 		          var username = $.trim($("#username").val());
 		          var password = $.trim($("#password").val());
@@ -39,31 +39,24 @@
 	   <%-- this form-login-page form is also used as the
          form-error-page to ask for a login again.
          --%>
-        <div class="alert alert-error">
-           <a class="close" data-dismiss="alert" href="#">×</a>
-           <h4 class="alert-heading">Warning!</h4>
-            Best check yo self, you're not...
-        </div>
-	    <c:if test="${not empty param.login_error}">
-	      <font color="red">
-	        Your login attempt was not successful, try again.<br/><br/>
-	        Reason: <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
-	      </font>
-	    </c:if>
-	   <div>
-	      <c:if test="${not empty param.login_error}">
-		          登录失败，请重试。错误原因:<br/>
-		  </c:if>
-		  <font color="red">
-	         <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-	              <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"></c:out>
-	         </c:if>
-		  </font>
-		
-	   </div>
+         
+       
 	   
 	   
 	   <div class="content">
+	     <div class="login-tip">
+	        <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">  
+	          <div class="alert alert-error">
+	
+	            <a class="close" data-dismiss="alert" href="#">×</a>
+	            <h4 class="alert-heading">Warning!</h4>
+	               登录失败，请重试。错误原因: <br/>  
+	             ${SPRING_SECURITY_LAST_EXCEPTION.message}
+	          </div>
+            </c:if>
+		</div>
+	     
+	   
 		  <form id="login-form" action="${ctx}/j_spring_security_check" method="post" class="form-vertical  sign-in">
 		       <fieldset>
 			      
@@ -108,38 +101,8 @@
  
  		<div class="background-red">
  		
- 		  <div class="sky background-red">
- 		  </div>
  		  <div class="landscape background-red">
- 		     <pre class="background-red">
- 		      sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
-             sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf   sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf
- 		       sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf  sdfa  dsajfkja;dljf;ajdf;lajd;lfja;djf;adjf;adjf;a;dfadf 		     
- 		     
- 		     </pre>
+
  		    
  		  </div>
  		 

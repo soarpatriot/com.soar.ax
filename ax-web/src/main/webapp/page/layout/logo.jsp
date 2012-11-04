@@ -1,8 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import="org.springframework.security.core.context.*" %>
-
-<%@ page import="org.springframework.security.core.Authentication" %>
-<%@ page import="org.springframework.security.core.GrantedAuthority" %>
 <%@ include file="/page/common/taglibs.jsp"%>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -14,7 +10,7 @@
       </a>
       
       
-      <a class="brand" href="#">Project name</a>
+      <a class="brand" href="#">AX</a>
       
     </div>
   </div>
