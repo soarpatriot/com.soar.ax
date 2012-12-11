@@ -20,9 +20,7 @@
     <link href="${ctx}/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="${ctx}/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="${ctx}/assets/css/main.css" rel="stylesheet">
-    
-    
-    
+   
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="${ctx}/assets/ico/favicon.ico">
     <link rel="apple-touch-icon" href="${ctx}/assets/ico/apple-touch-icon.png">
@@ -52,11 +50,7 @@
   </head>
   
   <body>
-       <%@ include file="/page/layout/logo.jsp"%>
-	   
-	        <decorator:body>
-	     	</decorator:body>
-	  
-	  
+       <%@ include file="/page/layout/logo.jsp"%> 
+       <decorator:body></decorator:body>
    </body>
 </html>

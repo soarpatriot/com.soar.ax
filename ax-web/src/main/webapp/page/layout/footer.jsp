@@ -10,28 +10,4 @@
 	        <p>Designed and built with all the love in the world @Soar</p>
 	        <p>All rights reserved. @2012 Powerd by AX</p>
 	</footer>
-	
-	
-	<div>
-	
-	   
-	
-	  <%--
-                Object ob =  request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
-                if(null != ob){
-                  SecurityContext se = (SecurityContext)ob;
-           
-                se.getAuthentication();
-           
-                   out.print("SE::::::::::"+  se.getAuthentication().getPrincipal());
-                   
-                   
-                    out.print("-----------------------------------------------------------------------------------" );
-                }
-           
-           
-           
-                
-       --%>
-	</div>
 </div>

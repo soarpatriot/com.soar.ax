@@ -66,6 +66,7 @@ public class BaseService<T> {
 	    @Autowired
 	    protected MyBatisGeneralDao myBatisGeneralDao;
 	    
+	    
 	    @Autowired
 	    protected MongoTemplate mongoTemplate;
 	    
@@ -156,6 +157,7 @@ public class BaseService<T> {
 			this.myBatisGeneralDao = myBatisGeneralDao;
 		}
 
+	
 		public MongoTemplate getMongoTemplate() {
 			return mongoTemplate;
 		}

@@ -37,14 +37,7 @@
 		<myproject.name>ax</myproject.name>
 		<cargo.project.groupid>${project.groupId}</cargo.project.groupid>
 		<cargo.project.artifactid>soar-ax</cargo.project.artifactid>
-		<!--可单独提取并配置到profiles文件来激活 -->
-		<catalina.home>E:/develop/java/jetty-hightide-7.2.2.v20101205</catalina.home><!--D:\hudson_ci\hudson_dep_tools\Tomcat6.0-->
-		<cargo.tomcat.manager.protocol>http</cargo.tomcat.manager.protocol>
-		<cargo.tomcat.manager.hostname>127.0.0.1</cargo.tomcat.manager.hostname>
-		<cargo.tomcat.manager.port>8080</cargo.tomcat.manager.port>
-		<cargo.tomcat.manager.ajp.port>8009</cargo.tomcat.manager.ajp.port>
-		<cargo.tomcat.manager.username>tomcat</cargo.tomcat.manager.username>
-		<cargo.tomcat.manager.password>tomcat</cargo.tomcat.manager.password>
+		
 
 		<deploy.home>G:\temp\jettyBuildHome\cargo\</deploy.home>
 
