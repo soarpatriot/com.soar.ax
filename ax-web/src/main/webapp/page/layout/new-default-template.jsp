@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="/page/common/taglibs.jsp"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE>
 <html>
 	<head>
     <title><decorator:title default="AX" /></title>
@@ -12,10 +12,9 @@
 	<meta http-equiv="expires" content="0">
 
     <!-- Le styles -->
-    <link href="${ctx}/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="${ctx}/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="${ctx}/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <link href="${ctx}/assets/css/main.css" rel="stylesheet">
+    <link href="${ctx}/public/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="${ctx}/public/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+    <link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
       
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="${ctx}/assets/ico/favicon.ico">
@@ -30,25 +29,6 @@
 	      <decorator:body></decorator:body>
 	    </div>
 	    <%@ include file="/page/layout/footer.jsp"%>  
-	    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-	    <!--[if lt IE 9]>
-	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	    <![endif]-->
-	    <script type="text/javascript" src="${ctx}/scripts/My97DatePicker/WdatePicker.js"></script>
-    	<script src="assets/js/jquery.js"></script>
-    	<script src="assets/js/google-code-prettify/prettify.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-transition.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-alert.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-modal.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-dropdown.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-scrollspy.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-tab.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-tooltip.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-popover.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-button.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-collapse.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-carousel.js"></script>
-	    <script src="${ctx}/assets/js/bootstrap-typeahead.js"></script>
-	    <script src="${ctx}/assets/js/application.js"></script>
+	    <%@ include file="/page/layout/js-files.jsp"%>
   </body>
 </html>

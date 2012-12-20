@@ -7,9 +7,9 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
     
-    <http pattern="/style/**" security="none"/>
-    <http pattern="/assets/**" security="none"/>
-    <http pattern="/scripts/**" security="none"/>
+    <http pattern="/public/**" security="none"/>
+   
+    
     <http pattern="/login.jsp*" security="none"/>
     <http pattern="/index.jsp*" security="none"/>
     
