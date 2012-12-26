@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="/page/common/taglibs.jsp"%>
-<!DOCTYPE>
+<!DOCTYPE HTML>
 <html>
 	<head>
     <title><decorator:title default="AX" /></title>
@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">
+	
 
     <!-- Le styles -->
     <link href="${ctx}/public/stylesheets/bootstrap.css" rel="stylesheet">
@@ -17,10 +17,9 @@
     <link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
       
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="${ctx}/assets/ico/favicon.ico">
-    <link rel="apple-touch-icon" href="${ctx}/assets/ico/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="${ctx}/assets/ico/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="${ctx}/assets/ico/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="${ctx}/public/img/favicon.ico">
+    
+	
 	<decorator:head></decorator:head>
   </head>
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -30,5 +29,7 @@
 	    </div>
 	    <%@ include file="/page/layout/footer.jsp"%>  
 	    <%@ include file="/page/layout/js-files.jsp"%>
+	    
+	    
   </body>
 </html>

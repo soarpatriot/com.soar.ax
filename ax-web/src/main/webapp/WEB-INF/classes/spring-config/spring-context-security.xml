@@ -12,6 +12,7 @@
     
     <http pattern="/login.jsp*" security="none"/>
     <http pattern="/index.jsp*" security="none"/>
+    <http pattern="/sso.jsp*" security="none"/>
     
     <http pattern="/page/layout/**" security="none"/>
     <http pattern="/page/common/**" security="none"/>
