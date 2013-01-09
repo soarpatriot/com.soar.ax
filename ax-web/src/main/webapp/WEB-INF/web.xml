@@ -103,7 +103,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:spring-config/spring-context.xml,
-			classpath*:spring-config/spring-context-sprintMVC.xml,
+			
 			classpath*:spring-config/spring-context-transactionPolicy.xml,
 			classpath*:spring-config/spring-context-log.xml,
 			classpath*:spring-config/spring-context-security.xml,
