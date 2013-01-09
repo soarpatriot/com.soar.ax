@@ -1,5 +1,9 @@
 package com.soar.ax.action.test;
 
+public class OrdersController{
+	
+}
+/**
 import java.util.Collection;
 
 import org.apache.struts2.convention.annotation.Result;
@@ -18,10 +22,7 @@ import com.soar.ax.service.other.OrdersService;
     @Result(name="success", type="redirectAction", params = {"actionName" , "orders"})
 })
 public class OrdersController extends ValidationAwareSupport implements ModelDriven<Object>, Validateable{
-    
-    /**
-	 * 
-	 */
+ 
 	private static final long serialVersionUID = 7444503081464408690L;
 	
 	private Order model = new Order();
@@ -99,3 +100,4 @@ public class OrdersController extends ValidationAwareSupport implements ModelDri
         return (list != null ? list : model);
     }
 }
+**/
