@@ -8,6 +8,5 @@
   
     <decorator name="ovp-bare-templeate" page="ovp-bare-template.jsp">
               <pattern>/*</pattern>
-    </decorator>
-    
+    </decorator>    
 </decorators>

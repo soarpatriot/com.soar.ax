@@ -10,7 +10,9 @@
 <html>
   <head>
     <title>OVP Client</title>
+    <script src="${ctx}/public/javascripts/jquery/jquery-1.8.3.min.js"></script>
     <script type="text/javascript">
+        
     	String.prototype.trim = function (){
 	    	return this.replace(/(^\s*)|(\s*$)/g , '');
 	 	}
@@ -124,7 +126,7 @@
               	      <a data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-placement="bottom" rel="popover" class="btn" href="#" data-original-title="Popover on top">Popover on top</a>
   	            
   	             -->
-  	            <h2 class="align-center">Lenovo OVP Client 1.6.2</h2>
+  	            <h2 class="align-center">Lenovo OVP Client 1.7.0</h2>
 		  	    <h4 class="align-center"><a href="javascript: jumpToOVP();" title="Click here to Levnovo OVP" onclick="">Order Report Portal</a></h4>
 				<form class="well form-inline form-horizontal">
 		  	    	<legend>Access OVP</legend>
@@ -355,5 +357,13 @@
 		      </div> 
 		  </div>
   	  </div>
+  	  
+  	  <!-- page js file  -->
+  	  <script type="text/javascript">
+  	  	  $(function() { 
+  	  	      //refine the select component
+              $("select").select2(); 
+          });
+  	  </script>
   </body>
 </html>

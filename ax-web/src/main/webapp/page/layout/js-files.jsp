@@ -4,7 +4,8 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="${ctx}/public/javascripts/My97DatePicker/WdatePicker.js"></script>
-<script src="${ctx}/public/javascripts/jquery/jquery-1.8.3-min.js"></script>
+<script src="${ctx}/public/javascripts/jquery/jquery-1.8.3.min.js"></script>
 <script src="${ctx}/public/javascripts/google-code-prettify/prettify.js"></script>
 <script src="${ctx}/public/javascripts/bootstrap/bootstrap.min.js"></script>
 <script src="${ctx}/public/javascripts/bootstrap/application.js"></script>
+<script src="${ctx}/public/javascripts/select/select2.min.js"></script>

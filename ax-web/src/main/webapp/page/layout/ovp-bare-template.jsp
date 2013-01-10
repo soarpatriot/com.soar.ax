@@ -14,7 +14,8 @@
     <!-- Le styles -->
     <link href="${ctx}/public/stylesheets/bootstrap.css" rel="stylesheet">
     <link href="${ctx}/public/stylesheets/bootstrap-responsive.css" rel="stylesheet">
-	<link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
+    <link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
+	<link href="${ctx}/public/stylesheets/select2.css" rel="stylesheet">
 	
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="${ctx}/public/img/favicon.ico">
@@ -26,5 +27,6 @@
        <decorator:body></decorator:body>
        <%@ include file="/page/layout/ovp-footer.jsp"%> 
        <%@ include file="/page/layout/js-files.jsp"%>
+       
    </body>
 </html>
