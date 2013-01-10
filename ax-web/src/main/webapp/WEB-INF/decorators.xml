@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/page/layout">
     <excludes> 
-              <pattern>/assets/*</pattern>               
-              <pattern>/style/*</pattern> 
-              <pattern>/scripts/*</pattern>   
+              
+              <pattern>/public/*</pattern>   
               <pattern>/page/common/*</pattern>
               <pattern>/page/layout/*</pattern>       
     </excludes> 
