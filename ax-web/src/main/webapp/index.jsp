@@ -118,22 +118,21 @@
   </head>  
   <body onload="document.getElementById('soldTo').focus();">
       
-  	  <div class="row">
-  	       <div class="span6 offset3">
+  	  <div class="row-fluid">
+  	       <div class="span8 offset2">
   	            <!-- 
               	      <a data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-placement="bottom" rel="popover" class="btn" href="#" data-original-title="Popover on top">Popover on top</a>
   	            
   	             -->
-  	            <h2 class="align-center">Lenovo OVP Client 1.6</h2>
+  	            <h2 class="align-center">Lenovo OVP Client 1.6.2</h2>
 		  	    <h4 class="align-center"><a href="javascript: jumpToOVP();" title="Click here to Levnovo OVP" onclick="">Order Report Portal</a></h4>
 				<form class="well form-inline form-horizontal">
 		  	    	<legend>Access OVP</legend>
-		  	    	
 					<div id="login-type" class="control-group">
 			            <label class="control-label" for="loginType">Login Type</label>
 			            <div class="controls">
-			                <select name="loginType" id="loginType">
-						         	<option value="sso" selected="selected">sso</option>
+			                <select name="loginType"  class="input-xlarge" id="loginType">
+						         	<option value="sso"  selected="selected">sso</option>
 						         	<option value="public">public</option>
 					        </select>
 			            </div>
@@ -141,7 +140,7 @@
 			        <div id="ovp-link" class="control-group">
 			            <label class="control-label" for="ovpLink">Please select the system you want access:</label>
 			            <div class="controls">
-			                <select name="ovpLink" id="ovpLink" size="1" onchange="chgLink(this);">
+			                <select name="ovpLink" id="ovpLink" class="input-xxlarge" size="1" onchange="chgLink(this);">
 						         	<option value="http://tst-ovp.lenovo.com/lenovo-ovp" selected="selected">Q:&nbsp;&nbsp;http://tst-ovp.lenovo.com/lenovo-ovp</option>
 						         	<option value="http://10.96.13.245:10080/lenovo-ovp">D:&nbsp;&nbsp;http://10.96.13.245:10080/lenovo-ovp</option>
 									<option value="http://tst-ovp.lenovo.com/lenovo-ovp-new">ER2:&nbsp;&nbsp;http://tst-ovp.lenovo.com/lenovo-ovp-new</option>
@@ -162,25 +161,25 @@
 			        <div id="user-id" class="control-group">
 			            <label class="control-label" for="userId">User ID</label>
 			            <div class="controls">
-			                <input type="text" name="userId" id="userId" value="Narash">
+			                <input type="text" class="input-xlarge" name="userId" id="userId" value="Narash">
 			            </div>
 			        </div>
 			        <div class="control-group">
 			            <label class="control-label" for="soldTo">Sold To</label>
 			            <div class="controls">
-			                <input type="text" name="soldTo" id="soldTo" value="" onblur="procMsg(this, 2);" placeHolder="Not WebUI, value needed"/>&nbsp;<span id="msg2" style="color: red;display: none;">Please enter soldTo when request system is not webUI</span>
+			                <input type="text" class="input-xlarge" name="soldTo" id="soldTo" value="" onblur="procMsg(this, 2);" placeHolder="Not WebUI, value needed"/>&nbsp;<span id="msg2" style="color: red;display: none;">Please enter soldTo when request system is not webUI</span>
 			            </div>
 			        </div>
 			        <div class="control-group">
 			            <label class="control-label" for="cipher">Cipher</label>
 			            <div class="controls">
-			                <input type="text" name="cipher" id="cipher" value="" placeHolder="Access Production, value needed"/>&nbsp;<span id="cpSpan" style="color: red;display: none;">Access to the production environment, Please enter cipher</span>
+			                <input type="text" class="input-xlarge" name="cipher" id="cipher" value="" placeHolder="Access Production, value needed"/>&nbsp;<span id="cpSpan" style="color: red;display: none;">Access to the production environment, Please enter cipher</span>
 			            </div>
 			        </div>
 			        <div class="control-group">
 			            <label class="control-label" for="dateFormat">Date Format</label>
 			            <div class="controls">
-			                <select name="dateFormat" id="dateFormat">
+			                <select name="dateFormat" class="input-xlarge" id="dateFormat">
 					         	<!-- y-m-d -->
 					         	<option value="YYYY-MM-DD">YYYY-MM-DD</option>
 					         	<option value="YYYY.MM.DD">YYYY.MM.DD</option>
@@ -200,7 +199,7 @@
 			        <div class="control-group">
 			            <label class="control-label" for="language">Language</label>
 			            <div class="controls">
-			                <select name="language" id="language">
+			                <select name="language" class="input-xlarge" id="language">
 					           <option value="en">English</option>
 					           <option value="ar">阿拉伯语</option>
 					           <option value="tr">土耳其语</option>
@@ -216,7 +215,7 @@
 			        <div class="control-group">
 			            <label class="control-label" for="reqSys">RequestorSystem</label>
 			            <div class="controls">
-			                <select name="reqSys" id="reqSys">
+			                <select name="reqSys" class="input-xlarge" id="reqSys">
 					           <option value="WEBUI" selected="selected">WebUI</option>
 					           <option value="LPO">LPO</option>
 					           <option value="EMISA">EMISA</option>
@@ -229,13 +228,13 @@
 			        <div class="control-group">
 			            <label class="control-label" for="userEmail">User Email</label>
 			            <div class="controls">
-			                <input type="text" name="userEmail" id="userEmail" value="sunning2@lenovo.com">
+			                <input type="text" class="input-xlarge" name="userEmail" id="userEmail" value="sunning2@lenovo.com">
 			            </div>
 			        </div>
 			        <div class="control-group">
 			            <label class="control-label" for="nodeLevel">Node Level</label>
 			            <div class="controls">
-			                <select name="nodeLevel" id="nodeLevel">
+			                <select name="nodeLevel" class="input-xlarge" id="nodeLevel">
 					           <option value="INTERNAL">Internal</option>
 					           <option value="CHANNEL">Channel</option>
 					           <option value="LE">LE</option>
@@ -245,31 +244,31 @@
 			        <div class="control-group">
 			            <label class="control-label" for="currencyDecimal">Currency Decimal</label>
 			            <div class="controls">
-			                <input type="text" id="currencyDecimal" value="dot" readonly="readonly">
+			                <input type="text" class="input-xlarge" id="currencyDecimal" value="dot" readonly="readonly">
 			            </div>
 			        </div>
 			        <div class="control-group">
 			            <label class="control-label" for="country">Country</label>
 			            <div class="controls">
-							<input type="text" id="country" name="country" value="US"/>
+							<input type="text" class="input-xlarge" id="country" name="country" value="US"/>
 			            </div>
 			        </div>
 			        <div id="first-name" class="control-group">
 			            <label class="control-label" for="firstName">First Name</label>
 			            <div class="controls">
-							<input type="text" id="firstName" name="firstName" value="FirstName"/>
+							<input type="text" class="input-xlarge" id="firstName" name="firstName" value="FirstName"/>
 			            </div>
 			        </div>
 			        <div id="last-name" class="control-group">
 			            <label class="control-label" for="lastName">Last Name</label>
 			            <div class="controls">
-							<input type="text" id="lastName" name="lastName" value="LastName"/>
+							<input type="text" class="input-xlarge" id="lastName" name="lastName" value="LastName"/>
 			            </div>
 			        </div>
 			        <div id="time-zone" class="control-group">
 			            <label class="control-label" for="timeZone">Time Zone</label>
 			            <div class="controls">
-							<select name="timeZone" id="timeZone" class="selec_bo">
+							<select name="timeZone" class="input-xxlarge" id="timeZone" class="selec_bo">
 								<option value="-12" >(GMT - 12:00 hours) Enitwetok, Kwajalien</option>
 								<option value="-11" >(GMT - 11:00 hours) Midway Island, Samoa</option>
 								<option value="-10" >(GMT - 10:00 hours) Hawaii</option>
@@ -306,7 +305,7 @@
 			       
 		  	    </form>
 		  
-		  <div class="row">
+		  <div class="row-fluid">
 		       <div class="span6">
 		       		<a href="#use" onclick="doSH();">How to use?</a>
 				<div id="helpDiv" style="display: none;">
