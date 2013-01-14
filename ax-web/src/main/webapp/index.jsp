@@ -10,124 +10,13 @@
 <html>
   <head>
     <title>OVP Client</title>
-    <script src="${ctx}/public/javascripts/jquery/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript">
-        
-    	String.prototype.trim = function (){
-	    	return this.replace(/(^\s*)|(\s*$)/g , '');
-	 	}
-		function jumpToOVP(){
-		    //var newsltn = document.getElementById("newsltn");
-		    //var isNew = newsltn.checked;
-		    var ok = true;
-		    var loginType = document.getElementById("loginType").value;// public/sso
-   			var ovpLink = document.getElementById("ovpLink").value;// D/Q/Local
-   			var pSystem = "http://ovp.lenovo.com/lenovo-ovp";
-   			if('-1' == ovpLink)
-   			{
-	   			var ovpLink2 = document.getElementById("ovpLink2").value;
-   				if(ovpLink2 == "" || ovpLink2.trim().length == 0)
-   				{
-   					alert("Please select or enter the system you want to access");
-   					return;
-   				}
-	   			ovpLink = ovpLink2.trim();
-   			}
-   			var userId = document.getElementById("userId").value;
-   			var soldTo = document.getElementById("soldTo").value;
-   			var reqSys = document.getElementById("reqSys").value;
-   			
-   			// bussiness
-   			if(! procMsg(document.getElementById("soldTo"), 2) || ! chkCipher()) {
-   				ok = false;
-   			}
-   			//alert("ok=" + ok);
-   			if(!ok) {
-   				return;
-   			}
-   			var nodeLevel = document.getElementById("nodeLevel").value;
-   			var dateFormat = document.getElementById("dateFormat").value;
-   			var language = document.getElementById("language").value;
-   			var userEmail = document.getElementById("userEmail").value;
-   			var currencyDecimal = "dot";
-   			// other
-   			var firstName = document.getElementById("firstName").value;
-   			var lastName = document.getElementById("lastName").value;
-   			var timeZone = document.getElementById("timeZone").value;
-   			var country = document.getElementById("country").value;
-   			var cipher = document.getElementById("cipher").value;
-   			
-   			if(cipher=='object' || cipher=='undefined') {
-   				cipher = '';
-   				
-   			}
-   			 var pm = "?soldTo="+soldTo
-		    		+"&userId="+userId
-		    		// old solution need
-		    		+"&requestorSystem="+reqSys
-   					+"&nodeLevel="+nodeLevel
-   					+"&userEmail="+userEmail
-   					+"&dateFormat="+dateFormat
-   					+"&currencyDecimal="+currencyDecimal
-   					+"&country="+country
-   					+"&timezone="+timeZone
-   					+"&firstName="+firstName
-   					+"&lastName="+lastName
-   					+"&language="+language
-   					// old
-   					+"&request_locale="+language
-   					+"&cipher="+cipher
-   					+"&ovpLink="+ovpLink;
-			// public login way is same
-			var url = "";		
-   			if("public" == loginType){
-   				url = ovpLink + "/public/showDetail!publicStatusIndex.action";
-   			}else{
-	   			url = "sso.jsp" + pm;
-   			}
-   			window.location = url;
-   			//window.open(url, 'NewWindow', 'height=800, width=1280, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=true,location=no, status=no');
-		}
-		
-		// Here I full realized linkage when user enter some words or delete all words
-		function procMsg(obj, num) {
-			//var reg = /^\S+|\S+$/g;
-			var reg = /^.*\S+.*$/g;
-			var val = obj.value;
-			var reqSys = document.getElementById("reqSys").value;
-			if(reg.test(val) ||(obj.id == "soldTo" && reqSys == "WEBUI")) {
-				document.getElementById("msg"+ num).style.display = "none";
-				return true;
-			} else {
-				document.getElementById("msg"+ num).style.display = "";
-				return false;
-			}
-		}
-		
-		function chkCipher() {
-			var ovpLink = document.getElementById("ovpLink").value;
-			var cipher = document.getElementById("cipher").value;
-			
-			var reg = /^.*\S+.*$/g;
-			if("http://ovp.lenovo.com/lenovo-ovp" == ovpLink && !reg.test(cipher)) {
-				document.getElementById("cpSpan").style.display = "";
-				return false;
-			}
-			document.getElementById("cpSpan").style.display = "none";
-			return true;
-		}
-    </script>
+
   </head>  
   <body onload="document.getElementById('soldTo').focus();">
-      
+       
   	  <div class="row-fluid">
   	       <div class="span8 offset2">
-  	            <!-- 
-              	      <a data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-placement="bottom" rel="popover" class="btn" href="#" data-original-title="Popover on top">Popover on top</a>
-  	            
-  	             -->
-  	            <h2 class="align-center">Lenovo OVP Client 1.7.0</h2>
-		  	    <h4 class="align-center"><a href="javascript: jumpToOVP();" title="Click here to Levnovo OVP" onclick="">Order Report Portal</a></h4>
+  	                      
 				<form class="well form-inline form-horizontal">
 		  	    	<legend>Access OVP</legend>
 					<div id="login-type" class="control-group">
@@ -179,6 +68,31 @@
 			            </div>
 			        </div>
 			        <div class="control-group">
+			            <label class="control-label" for="reqSys">RequestorSystem</label>
+			            <div class="controls">
+			                <select name="reqSys" class="input-xlarge" id="reqSys">
+					           <option value="WEBUI" selected="selected">WebUI</option>
+					           <option value="LPO">LPO</option>
+					           <option value="EMISA">EMISA</option>
+					           <option value="JDA">JDA</option>			           
+					           <option value="LEOS">LEOS</option>
+					           <option value="PORTAL">Sales Portal</option>
+					         </select>
+			            </div>
+			        </div>
+			        <div class="control-group">
+			            <label class="control-label" for="nodeLevel">Node Level</label>
+			            <div class="controls">
+			                <select name="nodeLevel" class="input-xlarge" id="nodeLevel">
+					           <option value="INTERNAL">Internal</option>
+					           <option value="CHANNEL">Channel</option>
+					           <option value="LE">LE</option>
+					        </select>
+			            </div>
+			        </div>
+			        <p>&nbsp;&nbsp;&nbsp;<i id="more-ico" class="icon-plus-sign"></i>&nbsp;&nbsp;&nbsp;<b>More</b></p>
+			        <div id="more-info" class="more-info">
+			        	<div class="control-group">
 			            <label class="control-label" for="dateFormat">Date Format</label>
 			            <div class="controls">
 			                <select name="dateFormat" class="input-xlarge" id="dateFormat">
@@ -202,47 +116,81 @@
 			            <label class="control-label" for="language">Language</label>
 			            <div class="controls">
 			                <select name="language" class="input-xlarge" id="language">
-					           <option value="en">English</option>
-					           <option value="ar">阿拉伯语</option>
-					           <option value="tr">土耳其语</option>
-					           <option value="zf">繁體中文</option>
-					           <option value="ja">日语</option>  
-					           <option value="ko">한국어</option>
-					           <option value="pt">葡萄牙语</option>
-					           <option value="ru">俄语</option>
-					           <option value="fr">法语</option>   
-					         </select>
+					            <option value="en" selected >
+									English
+								</option>
+								<option value="ja" >
+									日本語
+								</option>
+								<option value="ru" >
+									русский
+								</option>
+								<option value="tr" >
+									Türkçe
+								</option>
+								<option value="ar" >
+									العربية
+								</option>
+								<option value="fr_CA" >
+									Français canadien
+								</option>
+								<option value="fr_FR" >
+									Français
+								</option>
+								<option value="zf" >
+									繁體中文
+								</option>
+								<option value="ko" >
+									한국어
+								</option>
+								<option value="es_LA" >
+									Español Latinoamérica
+								</option>
+								<option value="es_ES" >
+									Español
+								</option>
+								<option value="pt_BR" >
+									Português do Brasil
+								</option>
+								<option value="pt_PT" >
+									Português
+								</option>
+								<option value="de" >
+									Deutsch
+								</option>
+								<option value="iw" >
+									עברית
+								</option>
+								<option value="da" >
+									Dansk
+								</option>
+								<option value="fi" >
+									suomi
+								</option>
+								<option value="it" >
+									Italiano
+								</option>
+								<option value="nl" >
+									Nederlands
+								</option>
+								<option value="no" >
+									Norsk
+								</option>
+								<option value="sv" >
+									Svenska
+								</option>	
+					 
+					       </select>
 			            </div>
 			        </div>
-			        <div class="control-group">
-			            <label class="control-label" for="reqSys">RequestorSystem</label>
-			            <div class="controls">
-			                <select name="reqSys" class="input-xlarge" id="reqSys">
-					           <option value="WEBUI" selected="selected">WebUI</option>
-					           <option value="LPO">LPO</option>
-					           <option value="EMISA">EMISA</option>
-					           <option value="JDA">JDA</option>			           
-					           <option value="LEOS">LEOS</option>
-					           <option value="PORTAL">Sales Portal</option>
-					         </select>
-			            </div>
-			        </div>
+			        
 			        <div class="control-group">
 			            <label class="control-label" for="userEmail">User Email</label>
 			            <div class="controls">
 			                <input type="text" class="input-xlarge" name="userEmail" id="userEmail" value="sunning2@lenovo.com">
 			            </div>
 			        </div>
-			        <div class="control-group">
-			            <label class="control-label" for="nodeLevel">Node Level</label>
-			            <div class="controls">
-			                <select name="nodeLevel" class="input-xlarge" id="nodeLevel">
-					           <option value="INTERNAL">Internal</option>
-					           <option value="CHANNEL">Channel</option>
-					           <option value="LE">LE</option>
-					        </select>
-			            </div>
-			        </div>
+			        
 			        <div class="control-group">
 			            <label class="control-label" for="currencyDecimal">Currency Decimal</label>
 			            <div class="controls">
@@ -258,13 +206,13 @@
 			        <div id="first-name" class="control-group">
 			            <label class="control-label" for="firstName">First Name</label>
 			            <div class="controls">
-							<input type="text" class="input-xlarge" id="firstName" name="firstName" value="FirstName"/>
+							<input type="text" class="input-xlarge" id="firstName" name="firstName" value="Ning"/>
 			            </div>
 			        </div>
 			        <div id="last-name" class="control-group">
 			            <label class="control-label" for="lastName">Last Name</label>
 			            <div class="controls">
-							<input type="text" class="input-xlarge" id="lastName" name="lastName" value="LastName"/>
+							<input type="text" class="input-xlarge" id="lastName" name="lastName" value="Sun"/>
 			            </div>
 			        </div>
 			        <div id="time-zone" class="control-group">
@@ -303,7 +251,15 @@
 								<option value="12" >(GMT + 12:00 hours) Auckland, Fiji, Marshall Island</option>
 							</select>
 			            </div>
+			           </div>
 			        </div>
+			        <div class="control-group">
+					    <div class="controls">
+					      
+					      <input type="button" id="login-ovp" class="btn btn-success" value="Login"/>
+					    </div>
+					</div>
+			        
 			       
 		  	    </form>
 		  
@@ -323,47 +279,13 @@
 					<br>
 					Click the link 'Order Report Portal' to OVP.
 				</div>
-				<script type="text/javascript">
-					var i = 0;
-					function doSH()
-					{
-						if(i==0)
-						{
-							document.getElementById("helpDiv").style.display = "";
-							i = 1;
-						}
-						else
-						{
-							document.getElementById("helpDiv").style.display = "none";
-							i = 0;
-						}
-					}
-					//
-					function chgLink(com)
-					{
-						if(com.value == '-1')
-						{
-							document.getElementById("ovpLink2").disabled = false;
-							document.getElementById("ovpLink2").style.display = "";
-							document.getElementById("ovpLink2").focus();
-						}else 
-						{
-							document.getElementById("ovpLink2").style.display = "none";
-							document.getElementById("ovpLink2").disabled = true;
-						}
-					}
-				</script>
+				
 		       </div>
 		      </div> 
 		  </div>
   	  </div>
   	  
   	  <!-- page js file  -->
-  	  <script type="text/javascript">
-  	  	  $(function() { 
-  	  	      //refine the select component
-              $("select").select2(); 
-          });
-  	  </script>
+  	  <script src="${ctx}/public/javascripts/app/index.js"></script>
   </body>
 </html>

@@ -3,7 +3,8 @@
     <excludes> 
               <pattern>/public/*</pattern>               
               <pattern>/page/common/*</pattern>
-              <pattern>/page/layout/*</pattern>       
+              <pattern>/page/layout/*</pattern> 
+              <pattern>/index-pre.jsp</pattern>      
     </excludes> 
   
     <decorator name="ovp-bare-templeate" page="ovp-bare-template.jsp">

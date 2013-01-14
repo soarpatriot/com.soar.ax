@@ -28,6 +28,13 @@ body{
   	height:400px;
 
 }
+
+.more-info{
+	display:none;
+}
+
+
+
 .align-left{
 	text-align:left;
 }

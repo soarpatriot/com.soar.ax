@@ -9,6 +9,13 @@
         <span class="icon-bar"></span>
       </a>
 	  <a class="brand" href="#">Access OVP</a>
+	  <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="<c:if test='${hightLight eq "Overview"}'>active</c:if>">
+            <a id="about" href="#about">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
