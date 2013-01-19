@@ -11,7 +11,7 @@ http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-    <mongo:mongo host="localhost" port="27017">
+    <mongo:mongo host="ds047447.mongolab.com" port="47447">
 		<mongo:options connections-per-host="8"
 		threads-allowed-to-block-for-connection-multiplier="4"
 		connect-timeout="1000"
@@ -26,9 +26,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	</mongo:mongo>
 	 
 	<mongo:db-factory id="mongoDbFactory"
-		host="localhost"
-		port="27017"
-		dbname="database"
+		host="ds047447.mongolab.com"
+		port="47447"
+		dbname="ovp"
 		username="xiaodonggua"
 		password="22143521"/>
 		

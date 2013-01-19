@@ -61,11 +61,31 @@ body{
 **/
 
 
+.pagination a, 
+.pagination span {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    border-color: #DDDDDD;
+    border-style: none;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 38px;
+    padding: 0 14px;
+    text-decoration: none;
+}
 
-.mini-height{
+.main-content{
+	margin-top:60px;
 	min-height:400px;/*ss*/
 	height:auto!important;
   	height:400px;
+}
+.mini-height{
+	
 
 }
 .align-left{

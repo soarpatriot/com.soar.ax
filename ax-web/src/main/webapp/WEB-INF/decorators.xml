@@ -10,6 +10,10 @@
 	<decorator name="ovp-bare-templeate" page="ovp-bare-template.jsp">
               <pattern>/index.jsp</pattern>
     </decorator>
+    <decorator name="ovp-bare-templeate" page="ovp-bare-template.jsp">
+              <pattern>/order</pattern>
+              <pattern>/order/*</pattern>
+    </decorator>
     <decorator name="index-templeate" page="new-default-template.jsp">
               <pattern>/*</pattern>          
     </decorator>

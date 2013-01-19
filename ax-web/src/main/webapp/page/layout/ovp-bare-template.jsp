@@ -14,17 +14,40 @@
     <!-- Le styles -->
     <link href="${ctx}/public/stylesheets/bootstrap.css" rel="stylesheet">
     <link href="${ctx}/public/stylesheets/bootstrap-responsive.css" rel="stylesheet">
-	<link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
-	
-    <!-- Le fav and touch icons -->
+    <link href="${ctx}/public/stylesheets/docs.css" rel="stylesheet">
+	<link href="${ctx}/public/stylesheets/select2.css" rel="stylesheet">
+	<link href="${ctx}/public/stylesheets/avgrund/style.css" rel="stylesheet">
+	<link href="${ctx}/public/stylesheets/avgrund/avgrund.css" rel="stylesheet">
+ 	<!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="${ctx}/public/img/favicon.ico">
+	<script src="${ctx}/public/javascripts/jquery/jquery-1.8.3.min.js"></script>
+   
     <decorator:head></decorator:head>
   </head>
   
   <body>
-       <%@ include file="/page/layout/ovp-logo.jsp"%> 
-       <decorator:body></decorator:body>
-       <%@ include file="/page/layout/ovp-footer.jsp"%> 
+  	    <!--[if lt IE 9 ]>
+	  	     <div class="container-fluid alert alert-danger">
+				  <div class="row-fluid">
+	  	            <div class="span8 offset2">
+	  	               <div class="">
+	  	                <h4>Warning!</h4>
+	  	            	Please note that this OVP demo (only this demo) no longer supports Internet Explorer versions 6 7 or 8
+						We recommend upgrading to the latest Internet Explorer, Google Chrome, or Firefox.
+						If you are using IE 9 or later, make sure you turn off "Compatibility View".
+						
+					   </div>	
+	  	            </div>
+	  	          </div>  
+	  	     </div>      
+	   <![endif]-->
+	   <%@ include file="/page/layout/ovp-logo.jsp"%> 
+  	   <div class="container-fluid main-content">
+ 	       <decorator:body></decorator:body>
+	   </div>    
+	   <%@ include file="/page/layout/ovp-footer.jsp"%> 
+       
        <%@ include file="/page/layout/js-files.jsp"%>
+       
    </body>
 </html>

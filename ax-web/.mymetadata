@@ -7,7 +7,7 @@
   j2ee-spec="5.0"
   archive="ax-web.war">
   <attributes>
-    <attribute name="webrootdir" value="/src/main/webapp" />
+    <attribute name="webrootdir" value="src/main/webapp" />
   </attributes>
 </project-module>
 

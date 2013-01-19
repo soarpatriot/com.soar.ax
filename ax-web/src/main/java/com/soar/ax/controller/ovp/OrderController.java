@@ -24,13 +24,19 @@ public class OrderController extends BaseController{
 	private OrderService orderService;
 	
 	@RequestMapping(method = RequestMethod.GET)
+	public String index() {
+		
+		return "order/grid";
+	}
+	
+	/*@RequestMapping(method = RequestMethod.GET)
 	public String create() {
 		
 		Person p = new Person("132213",20);
 		
 		orderService.saveToMongo(p);
-		
+		System.out.println("sdf");
 		return "redirect:/right";
 	
-	}
+	}*/
 }
