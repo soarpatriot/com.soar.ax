@@ -254,7 +254,7 @@
             <version>4.8.1</version>
           
         </dependency>
-       
+        <!--
         <dependency>
             <groupId>com.ibm</groupId>
             <artifactId>db2jcc</artifactId>
@@ -265,6 +265,7 @@
             <artifactId>db2jcc_license_cu</artifactId>
             <version>3.50.152</version>
         </dependency>
+        -->
         <dependency> 
                <groupId>cglib</groupId> 
                <artifactId>cglib</artifactId> 
