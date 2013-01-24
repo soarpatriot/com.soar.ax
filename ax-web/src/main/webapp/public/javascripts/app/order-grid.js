@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<%@ include file="/page/common/taglibs.jsp"%>
-<html>
-<head>
-	<title>Basic TreeGrid - jQuery EasyUI Demo</title>
-	<link rel="stylesheet" type="text/css" href="${ctx}/public/stylesheets/jquery-easyui/themes/bootstrap/easyui.css">
-	<link rel="stylesheet" type="text/css" href="${ctx}/public/stylesheets/jquery-easyui/themes/icon.css">
-
-	<script type="text/javascript" src="${ctx}/public/javascripts/jquery-easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="${ctx}/public/javascripts/jquery-easyui/datagrid-detailview.js"></script>
-	<script type="text/javascript">
-		$(function(){
+(function(){
+    
+  	$(function(){
 			//list-data
 			//orderHeaderUrl:'${ctx}/public/temp/datagrid_data.json',
 		    var orderGrid = {
@@ -157,16 +148,4 @@
 			    }      
 			});
 		});
-	</script>
-
-</head>
-<body>
-    <div class="row-fluid">
-       <div class="span8 offset2">
-       		<h2>Orders</h2>
-			<table id="orders-table" title="Folder Browser">
-			</table>
-       </div>
-    </div>
-</body>
-</html>
+})(orderGrid);

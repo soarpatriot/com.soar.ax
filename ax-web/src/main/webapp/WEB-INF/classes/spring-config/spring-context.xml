@@ -47,13 +47,7 @@
 	
 	
 	<!--
-	<bean id="ovpDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	    <property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />
-	    
-        <property name="url" value="jdbc:db2://10.96.36.46:50001/dmp" />
-        <property name="username" value="ovpwks" />
-        <property name="password" value="123456qw" />
-    </bean>
+	
     
     <bean id="myBatisSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="ovpDataSource" />
